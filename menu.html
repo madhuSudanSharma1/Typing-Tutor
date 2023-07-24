@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typing Tutor</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="menu_body">
+        <h1>Typing Practice Mode</h1>
+        <a href="index.html?level=level1" class="menu_level">Level1</a>
+        <a href="index.html?level=level2" class="menu_level">Level2</a>
+        <a href="index.html?level=level3" class="menu_level">Level3</a>
+        <a href="index.html?level=level4" class="menu_level">Level4</a>
+        <a href="index.html?level=level5" class="menu_level">Level5</a>
+    </div>
+
+</body>
+<script>
+ document.addEventListener('DOMContentLoaded', function () {
+        const params = new URLSearchParams(window.location.search);
+        const mode = params.get('mode');
+        const menuBody = document.querySelector('.menu_body');
+
+        if (mode === 'mode1') {
+            menuBody.innerHTML = `
+            <h1>Typing Practice Mode</h1>
+        <a href="index.html?level=level1" class="menu_level">Level1</a>
+        <a href="index.html?level=level2" class="menu_level">Level2</a>
+        <a href="index.html?level=level3" class="menu_level">Level3</a>
+        <a href="index.html?level=level4" class="menu_level">Level4</a>
+        <a href="index.html?level=level5" class="menu_level">Level5</a>
+            `;
+        } else if (mode === 'mode2') {
+            menuBody.innerHTML = `
+                <h1>Typing Challenge Mode</h1>
+                <a href="index.html?mode=practice" class="menu_level">Practice Mode</a>
+                <a href="index.html?mode=challenge" class="menu_level">Challenge Mode</a>
+                <p>This is the challenge mode content.</p>
+            `;
+        }
+    });
+</script>
+</html>
