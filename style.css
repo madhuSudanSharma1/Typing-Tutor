@@ -100,9 +100,18 @@ body {
     margin-bottom: 20px;
   }
 
+  .typingArea #wordOutput > * {
+    display: inline;
+  }
+
   .typingArea #wordOutput {
     color: #FF9900;
     font-weight: bold;
+    display: block;
+    margin: auto;
+    /* text-align: center;
+    justify-items: center;
+    align-items: center; */
   }
 
   .typingArea input {
