@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const typingInput = document.getElementById('typingInput');
   const wordOutput = document.getElementById('wordOutput');
   const levels = {
-    level1:  'ब द ग ह ज क ल म न प र स त बद दग गह हज जक कल लम मन नप पर रस सत बदग दगह गहज हजक जकल कलम लमन मनप नपर परस रसत बदगह दगहज गहजक हजकल जकलम कलमन लमनप मनपर नपरस परसत बदगहज दगहजक गहजकल हजकलम जकलमन कलमनप लमनपर मनपरस नपरसत बदगहजक दगहजकल गहजकलम हजकलमन जकलमनप कलमनपर लमनपरस मनपरसत बदगहजकल दगहजकलम गहजकलमन हजकलमनप जकलमनपर कलमनपरस लमनपरसत बदगहजकलम दगहजकलमन गहजकलमनप हजकलमनपर जकलमनपरस कलमनपरसत बदगहजकलमन दगहजकलमनप गहजकलमनपर हजकलमनपरस जकलमनपरसत बदगहजकलमनप दगहजकलमनपर गहजकलमनपरस हजकलमनपरसत बदगहजकलमनपर दगहजकलमनपरस गहजकलमनपरसत बदगहजकलमनपरस दगहजकलमनपरसत बदगहजकलमनपरसत',
+    level1: 'ब द ग ह ज क ल म न प र स त बद दग गह हज जक कल लम मन नप पर रस सत बदग दगह गहज हजक जकल कलम लमन मनप नपर परस रसत बदगह दगहज गहजक हजकल जकलम कलमन लमनप मनपर नपरस परसत बदगहज दगहजक गहजकल हजकलम जकलमन कलमनप लमनपर मनपरस नपरसत बदगहजक दगहजकल गहजकलम हजकलमन जकलमनप कलमनपर लमनपरस मनपरसत बदगहजकल दगहजकलम गहजकलमन हजकलमनप जकलमनपर कलमनपरस लमनपरसत बदगहजकलम दगहजकलमन गहजकलमनप हजकलमनपर जकलमनपरस कलमनपरसत बदगहजकलमन दगहजकलमनप गहजकलमनपर हजकलमनपरस जकलमनपरसत बदगहजकलमनप दगहजकलमनपर गहजकलमनपरस हजकलमनपरसत बदगहजकलमनपर दगहजकलमनपरस गहजकलमनपरसत बदगहजकलमनपरस दगहजकलमनपरसत बदगहजकलमनपरसत',
 
     level2: [
       'भ', 'छ', 'ध', 'ऊ', 'घ', 'अ', 'झ', 'ख',
@@ -44,41 +44,68 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
   const words = levels[level];
-  const wordsArray=words.split(' ');
+  const wordsArray = words.split(' ');
   let currentWordIndex = 0;
   let currentCharacterIndex = 0;
   let currentWord = wordsArray[currentWordIndex];
   let nextCharacter = currentWord.charAt(currentCharacterIndex);
-  let set=wordsArray.slice(0,5)
+  let set = wordsArray.slice(0, 5)
   wordOutput.textContent = set.join(' ');
-  glowNextCharacter('',nextCharacter)
+  glowNextCharacter('', nextCharacter)
+  let isInputCorrect = true
 
   typingInput.addEventListener('input', function () {
     const pressedCharacter = typingInput.value.charAt(typingInput.value.length - 1);
-
-    if (pressedCharacter === nextCharacter) {
-      currentCharacterIndex++;
-
-      if (currentCharacterIndex >= currentWord.length) {
-        currentWordIndex++;
-        typingInput.value = '';
-        currentCharacterIndex = 0;
-
-        if (currentWordIndex < words.length) {
-          currentWord = words[currentWordIndex];
-          wordOutput.textContent = currentWord;
-          nextCharacter = currentWord.charAt(currentCharacterIndex);
-        } else {
-          wordOutput.textContent = 'Congratulations! You completed all the words.';
-          typingInput.style.display='none';
-          nextCharacter = ''; 
-        }
-      } else {
-        nextCharacter = currentWord.charAt(currentCharacterIndex);
+    const charCode = pressedCharacter.charCodeAt(0);
+    if ((charCode >= 65 && charCode <= 90) || (charCode >= 97 && charCode <= 122)) {
+      alert("Change Keyboard to Nepali Unicode Romanized")
+    }
+    if(pressedCharacter==='')
+    {
+      isInputCorrect=true;
+      return;
+    }
+    
+    if (pressedCharacter !== nextCharacter) {
+      console.log(pressedCharacter.length)
+      isInputCorrect = false;
+      typingInput.style.color='red';
+      return;
+    }
+    if(!isInputCorrect){
+      console.log("ोुत",typingInput.value)
+      if(typingInput.value.length===0)
+      {
+        console.log(typingInput.value)
+        isInputCorrect=true;
       }
+      return;
+    }
+    isInputCorrect=true;
+    typingInput.style.color='green';
+    currentCharacterIndex++;
+
+    if (currentCharacterIndex >= currentWord.length) {
+      currentWordIndex++;
+      typingInput.value = '';
+      currentCharacterIndex = 0;
+
+      if (currentWordIndex < words.length) {
+        currentWord = words[currentWordIndex];
+        
+        wordOutput.textContent = currentWord;
+        nextCharacter = currentWord.charAt(currentCharacterIndex);
+      } else {
+        wordOutput.textContent = 'Congratulations! You completed all the words.';
+        typingInput.style.display = 'none';
+        nextCharacter = '';
+      }
+    } else {
+      nextCharacter = currentWord.charAt(currentCharacterIndex);
     }
 
-    glowNextCharacter(pressedCharacter, nextCharacter); 
+
+    glowNextCharacter(pressedCharacter, nextCharacter);
     console.log("Next character to be pressed:", nextCharacter);
   })
 })
