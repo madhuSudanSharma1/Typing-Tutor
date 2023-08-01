@@ -1,103 +1,25 @@
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
 
 <head>
-  <title>Nepali Typing Tutor</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typing Tutor</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <div id="wpm">0 ौपम</div>
-  <div class="typingArea">
-
-    <div id="wordOutput"></div>
-    <input type="text" id="typingInput">
-  </div>
-  <div class="keyboard">
-    <div class="case">
-      <!-- First row -->
-      <div class="key" data-key="escape">esc</div>
-      <div class="key" data-key="१"></div>
-      <div class="key" data-key="२"></div>
-      <div class="key" data-key="३"></div>
-      <div class="key" data-key="४"></div>
-      <div class="key" data-key="५"></div>
-      <div class="key" data-key="६"></div>
-      <div class="key" data-key="७"></div>
-      <div class="key" data-key="८"></div>
-      <div class="key" data-key="९"></div>
-      <div class="key" data-key="०"></div>
-      <div class="key" data-key="-"></div>
-      <div class="key" data-key="ZWJ"></div>
-      <div class="key xxl" data-key="backspace"></div>
-      <div class="key" data-key="help">ins</div>
-      <div class="key" data-key="home"></div>
-      <!-- Second row -->
-      <div class="key large" data-key="tab"></div>
-      <div class="key" data-key="ट"></div>
-      <div class="key" data-key="ौ"></div>
-      <div class="key" data-key="े"></div>
-      <div class="key" data-key="र"></div>
-      <div class="key" data-key="त"></div>
-      <div class="key" data-key="य"></div>
-      <div class="key" data-key="ु"></div>
-      <div class="key" data-key="ि"></div>
-      <div class="key" data-key="ो"></div>
-      <div class="key" data-key="प"></div>
-      <div class="key" data-key="इ"></div>
-      <div class="key" data-key="ए"></div>
-      <div class="key large" data-key="ॐ"></div>
-      <div class="key" data-key="delete">del</div>
-      <div class="key" data-key="end"></div>
-      <!-- Third row -->
-      <div class="key xl" data-key="capslock">caps</div>
-      <div class="key" data-key="ा"></div>
-      <div class="key" data-key="स"></div>
-      <div class="key" data-key="द"></div>
-      <div class="key" data-key="उ"></div>
-      <div class="key" data-key="ग"></div>
-      <div class="key" data-key="ह"></div>
-      <div class="key" data-key="ज"></div>
-      <div class="key" data-key="क"></div>
-      <div class="key" data-key="ल"></div>
-      <div class="key" data-key="ल"></div>
-      <div class="key" data-key=";"></div>
-      <div class="key xl" data-key="enter">return</div>
-      <div class="key" data-key="f15">pause</div>
-      <div class="key" data-key="pageup">pg up</div>
-      <!-- Fourth row -->
-      <div class="key xxl" data-key="shiftleft">shift</div>
-      <div class="key" data-key="ष"></div>
-      <div class="key" data-key="ड"></div>
-      <div class="key" data-key="च"></div>
-      <div class="key" data-key="व"></div>
-      <div class="key" data-key="ब"></div>
-      <div class="key" data-key="न"></div>
-      <div class="key" data-key="म"></div>
-      <div class="key" data-key=","></div>
-      <div class="key" data-key="।"></div>
-      <div class="key" data-key="्"></div>
-      <div class="key xxl" data-key="shiftright">shift</div>
-      <div class="key" data-key="arrowup">▲</div>
-      <div class="key" data-key="pagedown">pg dn</div>
-      <!-- Fifth row -->
-      <div class="key medium" data-key="controlleft">ctrl</div>
-      <div class="key medium" data-key="meta">win</div>
-      <div class="key medium" data-key="altleft">alt</div>
-      <div class="key huge" data-key=" "></div>
-      <div class="key medium" data-key="altright">alt</div>
-      <div class="key medium" data-key="fn"></div>
-      <div class="key medium" data-key="controlright">ctrl</div>
-      <div class="key" data-key="arrowleft">◀</div>
-      <div class="key" data-key="arrowdown">▼</div>
-      <div class="key" data-key="arrowright">▶</div>
+    <div class="menu_body">
+        <h1>Typing Tutor</h1>
+        <a href="menu.html?mode=mode1" class="menu_level">Practice Mode</a>
+        <a href="menu.html?mode=mode2" class="menu_level">Tutor Mode</a>
+        <a href="menu.html?mode=mode3" class="menu_level">Test Mode</a>
+        <a href="practice.html?level=level4" class="menu_level">Download Keyboard</a>
+        <a href="#" class="menu_level">Help</a>
     </div>
-  </div>
-</body>
+    <script src="words.js"></script>
 
-<script src="words.js"></script>
-<script src="script.js"></script>
-<script src="hello.js"></script>
+
+</body>
 
 </html>
