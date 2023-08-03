@@ -11,8 +11,6 @@ const getKey = (event) => {
 };
 function glowNextCharacter(curr,char)
 {
-
-  
   const current =
     document.querySelector(`[data-key="${curr}"]`) ||
     document.querySelector(`[data-key="${curr}"]`);
