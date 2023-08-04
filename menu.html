@@ -9,7 +9,13 @@
 </head>
 
 <body>
-    <div class="menu_body">
+    <div class="language">
+        <!-- <a href="index.html"> ENG</a> |
+        <a href="index.html?lang=np"> NEP</a>  -->
+         <button id="eng">ENG</button>
+         <button id="nep">NEP</button>
+     </div>
+    <div class="menu_body" lang="eng">
         <h1>Typing Practice Mode</h1>
         <a href="practice.html?level=level1" class="menu_level">Level1</a>
         <a href="practice.html?level=level2" class="menu_level">Level2</a>
@@ -18,7 +24,18 @@
         <a href="practice.html?level=level5" class="menu_level">Level5</a>
     </div>
 
+    <div class="menu_body" lang="nep">
+        <h1>टाइपिङ Practice Mode</h1>
+        <a href="practice.html?level=level1" class="menu_level">Level1</a>
+        <a href="practice.html?level=level2" class="menu_level">Level2</a>
+        <a href="practice.html?level=level3" class="menu_level">Level3</a>
+        <a href="practice.html?level=level4" class="menu_level">Level4</a>
+        <a href="practice.html?level=level5" class="menu_level">Level5</a>
+    </div>
+
 </body>
+<script src="./language.js"></script>
+
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         const params = new URLSearchParams(window.location.search);

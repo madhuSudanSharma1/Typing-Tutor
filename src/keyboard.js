@@ -89,12 +89,15 @@ class Keyboard {
           keyElement.innerHTML = createIconHTML("space_bar");
           break;
 
-        case "done":
+        case "shift":
           keyElement.classList.add(
-            "keyboard__key--wide",
-            "keyboard__key--dark"
+            "keyboard__key--wide"
+            // "keyboard__key--dark"
           );
-          keyElement.innerHTML = createIconHTML("check_circle");
+          // keyElement.innerHTML = createIconHTML("shift");
+          keyElement.innerHTML = `<span class="material-symbols-outlined">
+          shift
+          </span>`;
           break;
 
         default:
@@ -149,7 +152,7 @@ class Keyboard {
       if (!this.properties.capsLock) {
         this._toggleCapsLock();
       }
-      this.glow_caps();
+      this.glow_shift();
     }
     const keyElement = document.getElementById(this.getLowerCase(key));
     if (!keyElement.classList.value.includes("keyboard__key--activate")) {
@@ -165,7 +168,7 @@ class Keyboard {
       console.log("Test");
       this._toggleCapsLock();
     }
-    this.dim_caps();
+    this.dim_shift();
     const keyElement = document.getElementById(this.getLowerCase(key));
     if (keyElement.classList.value.includes("keyboard__key--activate")) {
       keyElement.classList.remove("keyboard__key--activate");
@@ -197,14 +200,14 @@ class Keyboard {
       keyElement.classList.remove("keyboard__key--extra-wide--activable");
     }
   }
-  glow_caps() {
-    const keyElement = document.getElementById("caps");
+  glow_shift() {
+    const keyElement = document.getElementById("shift");
     if (!keyElement.classList.value.includes("keyboard__key--activate")) {
       keyElement.classList.add("keyboard__key--activate");
     }
   }
-  dim_caps() {
-    const keyElement = document.getElementById("caps");
+  dim_shift() {
+    const keyElement = document.getElementById("shift");
     if (keyElement.classList.value.includes("keyboard__key--activate")) {
       keyElement.classList.remove("keyboard__key--activate");
     }

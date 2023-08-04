@@ -141,3 +141,6 @@ body {
   menu_body{
     align-items: center;
   }
+  .disp_none{
+    display: none !important;
+  }

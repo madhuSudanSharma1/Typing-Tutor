@@ -8,10 +8,25 @@
   <meta charset="utf-8">
   <link rel="stylesheet" href="css/keyboard.css" />
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 
 <body>
-
+  <script>
+    const LANG=localStorage.getItem('language')||'eng';
+    console.log(LANG)
+    const translation={
+      'normal':'साधारण',
+      'hard':'गाह्रो',
+  }
+    function getTextInCurrLang(text){
+      if(LANG=='eng')
+        return text
+      if(translation[text.toLowerCase()])
+        return translation[text.toLowerCase()];
+      alert('Translation not available for ',text);
+    }
+  </script>
   <script src="./src/data/normal.js"></script>
   <script src="./src/keyboardAnalytics.js"></script>
   <script src="./src/keyboardLayout.js"></script>

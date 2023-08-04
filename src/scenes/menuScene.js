@@ -2,11 +2,11 @@ class MenuScene {
   constructor(sceneManager) {
     this.sceneManager = sceneManager;
     this.sceneName = "menu";
-    this.tutorModeButton = new Button("Normal", windowWidth / 2, 200);
-    this.playModeButton = new Button("Hard", windowWidth / 2, 300);
+    this.tutorModeButton = new Button(getTextInCurrLang('Normal'), windowWidth / 2, 200);
+    this.playModeButton = new Button(getTextInCurrLang('Hard'), windowWidth / 2, 300);
     this.buttons = [
-      new Button("Normal", windowWidth / 2, 200),
-      new Button("Hard", windowWidth / 2, 300),
+      new Button(getTextInCurrLang('Normal'), windowWidth / 2, 200),
+      new Button(getTextInCurrLang('Hard'), windowWidth / 2, 300),
     ];
     this.buttonSceneName = ["normal", "hard"];
     this.animated = [
