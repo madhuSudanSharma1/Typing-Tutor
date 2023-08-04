@@ -6,6 +6,7 @@ class PlayScene {
     this.batchSize = 15;
     this.threshold = 5;
     this.backButton = new Button("Back", windowWidth / 10, windowHeight / 10);
+    this.keyboardButton = new Button("Toggle", windowWidth / 10, windowHeight / 5);
   }
 
   draw() {
@@ -13,25 +14,31 @@ class PlayScene {
     background(grass);
     // background(220);
     console.log(this.zombieManager.zombies.length)
-    if(this.zombieManager.zombies.length)
-        this.zombieManager.draw();
-
+    if (this.zombieManager.zombies.length > 1)
+      this.zombieManager.draw();
+    if (this.zombieManager.zombies.length === 1) {
+      // TODO
+      //console.log("gameover");
+      this.sceneManager.enterScene("gameOverPlay");
+    }
     this.backButton.draw();
+    this.keyboardButton.draw();
   }
   generateWords() {
     let index = Math.trunc(Math.random() * normalData.length);
     let currentSentence = normalData[index];
     let words = currentSentence.trim().split(" ");
     console.log(currentSentence)
-    if (words.length > this.batchSize) {
-      words = words.slice(0, this.batchSize);
-    }
+    // if (words.length > this.batchSize) {
+    //   words = words.slice(0, this.batchSize);
+    // }
     this.zombieManager.generateZombies(words, 50);
   }
   keyPressed(key) {
-    if(this.zombieManager.zombies.length)
+    if (this.zombieManager.zombies.length)
       this.zombieManager.keyPressed(key);
   }
+  
   onSceneEnter() {
     keyboardAnalytics.reset();
     console.log(" SceneEnter : Play ");
@@ -39,6 +46,8 @@ class PlayScene {
     this.backButton.callOnMousePress(() =>
       this.sceneManager.enterScene("menu")
     );
+    
+
     //
     this.generateWords();
   }
@@ -51,14 +60,14 @@ class PlayScene {
     this.zombieManager.update();
     //console.log(this.zombieManager.zombies.length)
     //console.log("secnd");
-    if (this.zombieManager.zombies.length===0) {
+    if (this.zombieManager.zombies.length === 0) {
       // TODO
       //console.log("gameover");
       this.sceneManager.enterScene("gameOverPlay");
     }
     //console.log("secnd");
     if (this.zombieManager.player.health < 0) {
-    //console.log("health 0");
+      //console.log("health 0");
       this.sceneManager.enterScene("gameOverPlay");
     }
 

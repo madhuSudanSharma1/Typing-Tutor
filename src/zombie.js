@@ -30,11 +30,11 @@ class Zombie {
   }
   chetVayo(bulletTime) {
     this.isDying = true;
-    // setTimeout(() => {
+    setTimeout(() => {
       this.isAlive = false;
       this.deathSound.play();
       setTimeout(() => this.deathSound.stop(), 3000);
-    // }, bulletTime * 1000);
+    }, bulletTime * 1000);
   }
   draw() {
     if (this.isAlive) {

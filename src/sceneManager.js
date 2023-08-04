@@ -1,6 +1,7 @@
 class SceneManager {
   constructor(sceneList) {
     this.scenes = sceneList.map((scene) => new scene(this));
+    
   }
   enterScene(newSceneName) {
     if (this.currentScene && this.currentScene.onSceneExit) {
