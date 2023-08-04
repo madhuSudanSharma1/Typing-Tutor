@@ -4,7 +4,9 @@ class Keyboard {
       main: null,
       keysContainer: null,
       keys: [],
+     
     };
+    this.visible = false;
     this.eventHandlers = {
       oninput: null,
       onclose: null,
@@ -168,6 +170,11 @@ class Keyboard {
     if (keyElement.classList.value.includes("keyboard__key--activate")) {
       keyElement.classList.remove("keyboard__key--activate");
     }
+  }
+  toggle_keyboard()
+  {
+    this.elements.main.classList.toggle("keyboard--hidden");
+    this.visible = !this.visible;
   }
   glow_space() {
     const keyElement = document.getElementById("space");

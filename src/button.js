@@ -11,6 +11,8 @@ class Button {
     this.mousePressFunction = null;
   }
   callOnMousePress(mousePressFunction) {
+    // console.log("Zoro");
+    console.log(mousePressFunction);
     this.mousePressFunction = mousePressFunction;
   }
   
