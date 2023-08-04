@@ -5,7 +5,7 @@ class ZombieManager {
     this.deadZombies = [];
     this.zombieToShoot = {};
     this.typedString = "";
-    this.zombieLane = 5;
+    this.zombieLane = 3;
     this.zombiesKillCount = 0;
     if (tutorMode) {
       setTimeout(() => keyboard.open(), 300);

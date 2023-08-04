@@ -9,11 +9,12 @@ class PlayScene {
     this.keyboardButton = new Button(
       "Toggle", windowWidth / 10, windowHeight / 5
     );
-    this.KeyboardObject = new Keyboard();
+    this.KeyboardObject = keyboard;
   }
   //This function chnages the visibility of keyboard
   Keyboard_toggle() {
-    this.KeyboardObject.toggle_keyboard();
+    //manishSaid();
+     this.KeyboardObject.toggle_keyboard();
     console.log(this.KeyboardObject.visible);
   }
   draw() {

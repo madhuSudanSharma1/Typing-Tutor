@@ -53,9 +53,9 @@ class Keyboard {
       const keyElement = document.createElement("button");
       let insertLineBreak = [];
       if (this.layout == "US") {
-        insertLineBreak = ["backspace", "\\", "'", "/"].indexOf(key) !== -1;
+        insertLineBreak = ["backspace", "ॐ", "'", "्"].indexOf(key) !== -1;
       } else if (this.layout == "UK") {
-        insertLineBreak = ["backspace", "\\", "'", "/"].indexOf(key) !== -1;
+        insertLineBreak = ["backspace", "ॐ", "'", "्"].indexOf(key) !== -1;
       }
 
       // Add attributes/classes/id
