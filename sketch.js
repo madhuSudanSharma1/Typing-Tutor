@@ -22,10 +22,8 @@ var deathSounds;
 var bulletHitTime = 2;
 
 var keyboardAnalytics;
-function manishSaid()
-{
-  clip(0,0,windowWidth,windowHeight-100);
-}
+
+
 function setup() {
   createCanvas(windowWidth, windowHeight);
   var sceneList = [

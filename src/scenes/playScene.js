@@ -7,13 +7,12 @@ class PlayScene {
     this.threshold = 5;
     this.backButton = new Button("Back", windowWidth / 10, windowHeight / 10);
     this.keyboardButton = new Button(
-      "Toggle", windowWidth / 10, windowHeight / 5
+      "Toggle Keyboard", windowWidth / 10, windowHeight / 5
     );
     this.KeyboardObject = keyboard;
   }
   //This function chnages the visibility of keyboard
   Keyboard_toggle() {
-    //manishSaid();
      this.KeyboardObject.toggle_keyboard();
     console.log(this.KeyboardObject.visible);
   }
