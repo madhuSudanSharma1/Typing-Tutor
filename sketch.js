@@ -27,7 +27,8 @@ var keyboardAnalytics;
 function setup() {
   createCanvas(windowWidth, windowHeight);
   var sceneList = [
-    PlayScene,
+    NormalPlayScene,
+    HardPlayScene,
     MenuScene,
     CreditScene,
     HelpScene,

@@ -1,7 +1,7 @@
-class PlayScene {
-  constructor(sceneManager) {
+class HardPlayScene {
+  constructor(sceneManager,level) {
     this.sceneManager = sceneManager;
-    this.sceneName = "normal";
+    this.sceneName = "hard";
     this.zombieToFire;
     this.batchSize = 15;
     this.threshold = 5;
@@ -10,6 +10,7 @@ class PlayScene {
       "Toggle Keyboard", windowWidth / 10, windowHeight / 5
     );
     this.KeyboardObject = keyboard;
+    this.level=level
   }
   //This function chnages the visibility of keyboard
   Keyboard_toggle() {
@@ -32,8 +33,8 @@ class PlayScene {
     this.keyboardButton.draw();
   }
   generateWords() {
-    let index = Math.trunc(Math.random() * normalData.length);
-    let currentSentence = normalData[index];
+    let index = Math.trunc(Math.random() * hardData.length);
+    let currentSentence = hardData[index];
     let words = currentSentence.trim().split(" ");
     console.log(currentSentence);
     // if (words.length > this.batchSize) {

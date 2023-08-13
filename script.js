@@ -21,6 +21,7 @@ function glowNextCharacter(curr,char)
     const next =
     document.querySelector(`[data-key="${char}"]`) ||
     document.querySelector(`[data-key="${char}"]`);
+    if(next)
   next.classList.add('nextChar')
 }
 

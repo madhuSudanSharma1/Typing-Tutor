@@ -100,6 +100,7 @@ class Words {
   #new_word;
   constructor(level) {
     this.#words = this.fetch_words(level).split(' ')
+    .filter(str=>str)
       .reduce((acc, curr) => {
         if (!(curr.trim().length === 0))
           acc.push(curr, " ")
@@ -117,7 +118,9 @@ class Words {
 
   fetch_words(level) {
     // fetch(`./texts/${level.trim()}.txt`).
-    return "बद दग कलम गह हज जक कल लम मन नप पर रस सत बदग दगह";
+   return  levels[level]
+    // return "ब";
+    // return "बद दग कलम गह हज जक कल लम मन नप पर रस सत बदग दगह";
   }
 
 
@@ -201,7 +204,8 @@ class Words {
         this.next_words_group();
         break;
       case "COMPLETED":
-        alert("COMPLETED");
+        alert(`Your typing speed is ${this.calc_wpm()}`);
+        window.location.href=`menu.html?mode=mode1`;
         //TODO: what to do now?
         break;
     }
@@ -215,8 +219,7 @@ class Words {
       remaining_words: this.#current_words.slice(this.#current_word_index),
       next_char: this.#next_char,
       new_word: this.#new_word,
-      wpm: (this.#current_word_group * words_per_group + this.#current_word_index) * 1000 * 60 /
-        Math.max((performance.now() - this.#start_time), 1)//to prevent this being 0 ms
+      wpm: this.calc_wpm()//to prevent this being 0 ms
       // (performance.now() - this.#start_time)
     };
   }
@@ -224,7 +227,12 @@ class Words {
     //this returns true if the `current_word_index` is the last word of the lis which means it is assumed that this function is called after completely typing `current_word`.
     return (this.#current_word_group * words_per_group + this.#current_word_index === this.#words.length - 1);
   }
-
+  calc_wpm(){
+   return  (this.#current_word_group * words_per_group + this.#current_word_index) * 1000 * 60 /
+    (2*Math.max((performance.now() - this.#start_time), 1))//to prevent this being 0 ms
+  }
 };
+
+
 
 word = new Words("level1")
