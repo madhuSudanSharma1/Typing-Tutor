@@ -3,7 +3,7 @@ class SceneManager {
     this.scenes = sceneList.map((scene) => new scene(this));
     
   }
-  enterScene(newSceneName) {
+  enterScene(newSceneName,arg) {
     if (this.currentScene && this.currentScene.onSceneExit) {
       this.currentScene.onSceneExit();
     }
@@ -11,7 +11,7 @@ class SceneManager {
     var existingScene = this.getScene(newSceneName);
     if (existingScene) {
       this.currentScene = existingScene;
-      this.currentScene.onSceneEnter();
+      this.currentScene.onSceneEnter(arg);
     } else {
       console.log("invalid scene name");
     }

@@ -71,7 +71,7 @@ class ZombieManager {
     // this.bombs.drawBomb();
     this.deadZombies.forEach((zombie) => zombie.draw());
     for (var i = this.zombies.length - 1; i >= 0; i--) {
-      this.zombies[i].draw();
+      this.zombies[i].draw(i);
     }
     // this.zombies.forEach((zombie) => zombie.draw());
     if (typeof this.zombieToShoot.draw === "function") {

@@ -16,15 +16,24 @@
     const LANG=localStorage.getItem('language')||'eng';
     console.log(LANG)
     const translation={
+      'easy':'सजिलो',
       'normal':'साधारण',
       'hard':'गाह्रो',
+      "level 1":"स्तर १",
+      "level 2":"स्तर २",
+      "level 3":"स्तर ३",
+      "level 4":"स्तर ४",
+      "level 5":"स्तर ५",
+      "back":"पछाडी",
+      "toggle keyboard":"किबोर्ड टगल"
   }
     function getTextInCurrLang(text){
       if(LANG=='eng')
         return text
       if(translation[text.toLowerCase()])
         return translation[text.toLowerCase()];
-      alert('Translation not available for ',text);
+      return text
+        // alert('Translation not available for ',text);
     }
   </script>
   <script src="./src/data/normal.js"></script>
@@ -43,8 +52,8 @@
   <script src="./src/scenes/gameOverPlayScene.js"></script>
   <script src="./src/scenes/gameOverTutorScene.js"></script>
   <script src="./src/scenes/levelCompleteScene.js"></script>
+  <!-- <script src="./src/scenes/playScene.js"></script> -->
   <script src="./src/scenes/normalPlayScene.js"></script>
-  <script src="./src/scenes/hardPlayScene.js"></script>
   <script src="./src/scenes/tutorScene.js"></script>
   <script src="./src/sceneManager.js"></script>
   <script src="sketch.js"></script>

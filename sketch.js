@@ -23,12 +23,36 @@ var bulletHitTime = 2;
 
 var keyboardAnalytics;
 
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+const MODE=urlParams.get('mode');
+
+const subModes={
+  practice:[
+    ["Level 1","practice1Data"],
+    ["Level 2","practice2Data"],
+    ["Level 3","practice3Data"],
+    ["Level 4","practice4Data"],
+    ["Level 5","practice5Data"]
+  ],
+  game:[
+    ["Easy","gameEasy"],
+    ["Normal","gameNormal"],
+    ["Hard","gameHard"]
+  ],
+  tutor:[
+    ["अ - अः","tutor1"],
+    ["क - ण","tutor2"],
+    ["ट - म","tutor3"],
+    ["य - ज्ञ","tutor4"]
+  ],
+
+}
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
   var sceneList = [
-    NormalPlayScene,
-    HardPlayScene,
+    PlayScene,
     MenuScene,
     CreditScene,
     HelpScene,

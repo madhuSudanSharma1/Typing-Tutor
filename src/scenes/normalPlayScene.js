@@ -1,20 +1,31 @@
-class NormalPlayScene {
-  constructor(sceneManager,level) {
+const gameDatas = {
+  tutor1: tutor1Data,
+  tutor2: tutor2Data,
+  tutor3: tutor3Data,
+  tutor4: tutor4Data,
+  gameEasy: gameEasyData,
+  gameNormal: gameNormalData,
+  gameHard: gameHardData
+};
+
+
+class PlayScene {
+  constructor(sceneManager, level) {
     this.sceneManager = sceneManager;
-    this.sceneName = "normal";
+    this.sceneName = "PlayScene";
     this.zombieToFire;
     this.batchSize = 15;
     this.threshold = 5;
-    this.backButton = new Button("Back", windowWidth / 10, windowHeight / 10);
+    this.backButton = new Button(getTextInCurrLang("back"), windowWidth / 10, windowHeight / 10);
     this.keyboardButton = new Button(
-      "Toggle Keyboard", windowWidth / 10, windowHeight / 5
+      getTextInCurrLang("Toggle Keyboard"), windowWidth / 10, windowHeight / 5
     );
     this.KeyboardObject = keyboard;
-    this.level=level
+    this.level = level
   }
   //This function chnages the visibility of keyboard
   Keyboard_toggle() {
-     this.KeyboardObject.toggle_keyboard();
+    this.KeyboardObject.toggle_keyboard();
     console.log(this.KeyboardObject.visible);
   }
   draw() {
@@ -32,9 +43,13 @@ class NormalPlayScene {
     this.backButton.draw();
     this.keyboardButton.draw();
   }
-  generateWords() {
-    let index = Math.trunc(Math.random() * normalData.length);
-    let currentSentence = normalData[index];
+  generateWords(mode) {
+    const data = gameDatas[mode];
+    let currentSentence = data;
+    if (Array.isArray(data)) {
+      let index = Math.trunc(Math.random() * data.length);
+      currentSentence = data[index];
+    }
     let words = currentSentence.trim().split(" ");
     console.log(currentSentence);
     // if (words.length > this.batchSize) {
@@ -46,7 +61,7 @@ class NormalPlayScene {
     if (this.zombieManager.zombies.length) this.zombieManager.keyPressed(key);
   }
 
-  onSceneEnter() {
+  onSceneEnter(mode) {
     keyboardAnalytics.reset();
     console.log(" SceneEnter : Play ");
     this.zombieManager = new ZombieManager();
@@ -56,7 +71,7 @@ class NormalPlayScene {
     this.keyboardButton.callOnMousePress(() => this.Keyboard_toggle());
 
     //
-    this.generateWords();
+    this.generateWords(mode);
   }
   onSceneExit() {
     this.KeyboardObject.elements.main.classList.add("keyboard--hidden");

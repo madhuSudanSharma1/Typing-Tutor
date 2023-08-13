@@ -1,14 +1,19 @@
 class MenuScene {
   constructor(sceneManager) {
     this.sceneManager = sceneManager;
+    this.currentMode = MODE;
     this.sceneName = "menu";
-    this.tutorModeButton = new Button(getTextInCurrLang('Normal'), windowWidth / 2, 200);
-    this.playModeButton = new Button(getTextInCurrLang('Hard'), windowWidth / 2, 300);
-    this.buttons = [
-      new Button(getTextInCurrLang('Normal'), windowWidth / 2, 200),
-      new Button(getTextInCurrLang('Hard'), windowWidth / 2, 300),
-    ];
-    this.buttonSceneName = ["normal", "hard"];
+    // this.buttons = [
+    //   new Button(getTextInCurrLang('Easy'), windowWidth / 2, 200),
+    //   new Button(getTextInCurrLang('Normal'), windowWidth / 2, 300),
+    //   new Button(getTextInCurrLang('Hard'), windowWidth / 2, 400),
+    // ];
+    this.buttons = subModes[MODE].map(([subMode, _], index) => {
+      return new Button(getTextInCurrLang(subMode), windowWidth / 2, 100 * (index + 1))
+    })
+    
+    this.backButton = new Button(getTextInCurrLang("back"), windowWidth / 10, windowHeight / 10);
+    this.modes = subModes[MODE].map(([_, subMode]) => subMode);
     this.animated = [
       new AnimatedSprite(gif_zomb[0][0]),
       new AnimatedSprite(gif_zomb[1][0]),
@@ -36,6 +41,7 @@ class MenuScene {
     // });
     // this.bombs.map((bomb) => bomb.drawBomb());
     this.buttons.map((button) => button.draw());
+    this.backButton.draw();
   }
   generateBombs() {
     const player = {
@@ -59,9 +65,12 @@ class MenuScene {
     console.log(" SceneEnter : Menu ");
     this.buttons.map((button, index) => {
       button.callOnMousePress(() =>
-        this.sceneManager.enterScene(this.buttonSceneName[index])
+        this.sceneManager.enterScene("PlayScene", this.modes[index])
       );
     });
+    this.backButton.callOnMousePress(() =>
+      history.back()
+    );
   }
   onSceneExit() {
     console.log(" SceneExit : Menu ");
@@ -78,6 +87,7 @@ class MenuScene {
     this.bombs = this.bombs.filter((bomb) => !bomb.exploded);
   }
   mouseClicked() {
+    this.backButton.mouseClicked();
     this.buttons.map((button) => button.mouseClicked());
   }
 }
