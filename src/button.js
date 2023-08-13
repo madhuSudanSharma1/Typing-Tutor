@@ -11,11 +11,10 @@ class Button {
     this.mousePressFunction = null;
   }
   callOnMousePress(mousePressFunction) {
-    console.log(mousePressFunction);
     this.mousePressFunction = mousePressFunction;
   }
-  
-    draw() {
+
+  draw() {
     if (!this.isHover && this.hover()) {
       hover_sound[0].play();
       setTimeout(() => hover_sound[0].stop(), 200);

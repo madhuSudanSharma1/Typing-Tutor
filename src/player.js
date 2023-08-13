@@ -17,7 +17,7 @@ class Player {
       new AnimatedSprite(skin[2]),
       new AnimatedSprite(skin[3]),
     ]; //AnimatedSprite Array
-    this.health = 100;
+    this.health = 1;
   }
   bulletHit(hitPoints) {
     if (this.health > 0) {
@@ -28,7 +28,11 @@ class Player {
   }
   draw() {
     image(platform, this.xPosition, this.yPosition);
-    image(log, this.xPosition+windowWidth*0.15, this.yPosition-windowHeight*0.33);
+    image(
+      log,
+      this.xPosition + windowWidth * 0.15,
+      this.yPosition - windowHeight * 0.33
+    );
     if (this.isAlive) {
       rectMode(CORNER);
       rect(this.healthPositionX - 1, this.healthPositionY - 1, 102, 7);

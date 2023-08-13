@@ -105,8 +105,8 @@ class ZombieManager {
         break;
       case " ":
         if (
-          this.zombieToShoot
-          && this.typedString === this.zombieToShoot.word
+          this.zombieToShoot &&
+          this.typedString === this.zombieToShoot.word
         ) {
           // If the typed word is the required word
           keyboardAnalytics.setCorrectlyTypedWords(this.zombieToShoot.word);
@@ -128,7 +128,11 @@ class ZombieManager {
           this.zombieToShoot = {};
           // setTimeout(
           //   () =>
-              (this.zombies = this.zombies.filter((zombie) => zombie.isAlive))
+          // console.log(this.zombies.length);
+          this.zombies = this.zombies.filter(
+            (zombie) => zombie.isAlive && !zombie.isDying
+          );
+          // console.log(this.zombies.length);
           //   newBomb.bulletTime * 1000
           // );
 
@@ -144,8 +148,7 @@ class ZombieManager {
         }
         break;
     }
-    if (this.zombies.length === 0)
-        return;
+    if (this.zombies.length === 0) return;
     this.setZombieToShoot();
     keyboard.glow_dim(
       this.zombieToShoot.word || this.zombies[0].word,
@@ -185,10 +188,10 @@ class ZombieManager {
     }
   }
 
-  update() {
+  update(speed) {
     //console.log("first")
 
-    this.zombies.forEach((zombie) => zombie.update());
+    this.zombies.forEach((zombie) => zombie.update(speed));
     // this.deadZombies.forEach((zombie) => zombie.update());
     //console.log("first")
     this.bombs = this.bombs.filter((bomb) => bomb.exploded === false);

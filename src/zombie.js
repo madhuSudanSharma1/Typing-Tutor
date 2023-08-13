@@ -36,9 +36,9 @@ class Zombie {
       setTimeout(() => this.deathSound.stop(), 3000);
     }, bulletTime * 1000);
   }
-  draw() {
+  draw(index) {
     if (this.isAlive) {
-      if (this.showWordBox) {
+      if (this.showWordBox && index == 0) {
         rectMode(CENTER);
         fill(color(this.isTargeted ? "orange" : "yellow"));
         rect(this.xPosition + 5, this.yPosition - 5, 18 * this.word.length, 30);
@@ -57,7 +57,8 @@ class Zombie {
       this.skin[1].drawImageOnce(this.xPosition - 20, this.yPosition);
     }
   }
-  update() {
+  update(speed) {
+    this.speed = speed;
     if (this.xPosition > windowWidth * 0.27) {
       this.xPosition -= this.speed * deltaTimeInSeconds;
     } else {

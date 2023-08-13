@@ -5,9 +5,8 @@ const gameDatas = {
   tutor4: tutor4Data,
   gameEasy: gameEasyData,
   gameNormal: gameNormalData,
-  gameHard: gameHardData
+  gameHard: gameHardData,
 };
-
 
 class PlayScene {
   constructor(sceneManager, level) {
@@ -16,12 +15,19 @@ class PlayScene {
     this.zombieToFire;
     this.batchSize = 15;
     this.threshold = 5;
-    this.backButton = new Button(getTextInCurrLang("back"), windowWidth / 10, windowHeight / 10);
+    this.speed = 30;
+    this.backButton = new Button(
+      getTextInCurrLang("back"),
+      windowWidth / 10,
+      windowHeight / 10
+    );
     this.keyboardButton = new Button(
-      getTextInCurrLang("Toggle Keyboard"), windowWidth / 10, windowHeight / 5
+      getTextInCurrLang("Toggle Keyboard"),
+      windowWidth / 10,
+      windowHeight / 5
     );
     this.KeyboardObject = keyboard;
-    this.level = level
+    this.level = level;
   }
   //This function chnages the visibility of keyboard
   Keyboard_toggle() {
@@ -55,7 +61,7 @@ class PlayScene {
     // if (words.length > this.batchSize) {
     //   words = words.slice(0, this.batchSize);
     // }
-    this.zombieManager.generateZombies(words, 50);
+    this.zombieManager.generateZombies(words, this.speed);
   }
   keyPressed(key) {
     if (this.zombieManager.zombies.length) this.zombieManager.keyPressed(key);
@@ -72,15 +78,18 @@ class PlayScene {
 
     //
     this.generateWords(mode);
+    this.slider = createSlider(25, 100, this.speed);
+    this.slider.position(windowWidth / 10, (windowHeight * 9) / 10);
   }
   onSceneExit() {
     this.KeyboardObject.elements.main.classList.add("keyboard--hidden");
     console.log(" SceneExit : Play ");
+    this.slider.remove();
   }
   update() {
     //console.log("secnd");
-
-    this.zombieManager.update();
+    this.speed = this.slider.value();
+    this.zombieManager.update(this.speed);
     //console.log(this.zombieManager.zombies.length)
     //console.log("secnd");
     // if (this.zombieManager.zombies.length === 0) {
