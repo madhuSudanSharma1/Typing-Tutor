@@ -42,9 +42,9 @@ const subModes={
   ],
   tutor:[
     ["अ - अः","tutor1"],
-    ["क - ण","tutor2"],
-    ["ट - म","tutor3"],
-    ["य - ज्ञ","tutor4"]
+    ["क - ठ","tutor2"],
+    ["ट - भ","tutor3"],
+    ["म - ज्ञ","tutor4"]
   ],
 
 }

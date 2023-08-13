@@ -2,7 +2,7 @@ class GameOverPlayScene {
   constructor(sceneManager) {
     this.sceneManager = sceneManager;
     this.sceneName = "gameOverPlay";
-    this.button = new Button("Continue", width / 2, height / 2 + windowHeight/10.8);
+    this.button = new Button("Continue", width / 2, 15+height / 2 + windowHeight/9);
     this.button.callOnMousePress(() => this.sceneManager.enterScene("menu"));
   }
   draw() {

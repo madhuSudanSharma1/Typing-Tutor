@@ -17,7 +17,7 @@ class PlayScene {
     this.threshold = 5;
     this.speed = 30;
     this.backButton = new Button(
-      getTextInCurrLang("back"),
+      getTextInCurrLang("Back"),
       windowWidth / 10,
       windowHeight / 10
     );
@@ -78,7 +78,7 @@ class PlayScene {
 
     //
     this.generateWords(mode);
-    this.slider = createSlider(25, 100, this.speed);
+    this.slider = createSlider(25, 333, this.speed);
     this.slider.position(windowWidth / 10, (windowHeight * 9) / 10);
   }
   onSceneExit() {

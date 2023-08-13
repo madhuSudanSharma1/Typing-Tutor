@@ -12,7 +12,7 @@ class MenuScene {
       return new Button(getTextInCurrLang(subMode), windowWidth / 2, 100 * (index + 1))
     })
     
-    this.backButton = new Button(getTextInCurrLang("back"), windowWidth / 10, windowHeight / 10);
+    this.backButton = new Button(getTextInCurrLang("Back"), windowWidth / 10, windowHeight / 10);
     this.modes = subModes[MODE].map(([_, subMode]) => subMode);
     this.animated = [
       new AnimatedSprite(gif_zomb[0][0]),

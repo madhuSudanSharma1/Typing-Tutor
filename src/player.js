@@ -17,7 +17,7 @@ class Player {
       new AnimatedSprite(skin[2]),
       new AnimatedSprite(skin[3]),
     ]; //AnimatedSprite Array
-    this.health = 1;
+    this.health = 100;
   }
   bulletHit(hitPoints) {
     if (this.health > 0) {

@@ -2,10 +2,10 @@ class KeyboardAnalytics {
   constructor() {
     this.reset();
     this.speedComments = {
-      0: "You are a Snail",
-      1: "You are a Tortoise",
-      2: "You are a Hare",
-      3: "You are a Cheetah",
+      0: "Don't be a SNAIL.",
+      1: "Too little, too late.",
+      2: "You are as fast as an hare.",
+      3: "Sky is the limit for you.",
     };
     this.accuracyComments = {
       0: [
@@ -38,14 +38,14 @@ class KeyboardAnalytics {
     yPos //xPos,yPos->top left
   ) {
     fill(6, 26, 64, 200);
-    let top = yPos;
-    let lineHeight = 12;
-    rect(xPos, top, windowWidth / 2, windowHeight / 5, 20);
+    let letWinHeight=windowHeight/3
+    let lineHeight = letWinHeight/6;
+    let top = yPos-(letWinHeight/2) + lineHeight;
+    rect(xPos, yPos, windowWidth / 2, letWinHeight+15, 20);
     fill(255);
     text("Game Over !! Please restart the game", xPos, top);
     text(
       `Accuracy = ${this.accuracy.toPrecision(3)}%`,
-
       xPos,
       top + lineHeight
     );
@@ -57,7 +57,7 @@ class KeyboardAnalytics {
     );
     text(
       `Corrected speed = ${this.correctedWPM.toPrecision(4)}wpm (${
-        this.speedComment
+        getTextInCurrLang(this.speedComment)
       }) `,
       xPos,
       top + lineHeight * 4
