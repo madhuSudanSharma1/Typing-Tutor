@@ -6,6 +6,11 @@ const gameDatas = {
   gameEasy: gameEasyData,
   gameNormal: gameNormalData,
   gameHard: gameHardData,
+  practice1:practice1Data,
+  practice2:practice2Data,
+  practice3:practice3Data,
+  practice4:practice4Data,
+  practice5:practice5Data
 };
 
 class PlayScene {

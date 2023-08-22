@@ -29,11 +29,11 @@ const MODE=urlParams.get('mode');
 
 const subModes={
   practice:[
-    ["Level 1","practice1Data"],
-    ["Level 2","practice2Data"],
-    ["Level 3","practice3Data"],
-    ["Level 4","practice4Data"],
-    ["Level 5","practice5Data"]
+    ["Level 1","practice1"],
+    ["Level 2","practice2"],
+    ["Level 3","practice3"],
+    ["Level 4","practice4"],
+    ["Level 5","practice5"]
   ],
   game:[
     ["Easy","gameEasy"],
