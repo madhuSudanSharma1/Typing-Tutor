@@ -79,7 +79,7 @@ class PlayScene {
     //
     this.generateWords(mode);
     this.slider = createSlider(25, 333, this.speed);
-    this.slider.position(windowWidth / 10, (windowHeight * 9) / 10);
+    this.slider.position(windowWidth / 19, (windowHeight ) / 45);
   }
   onSceneExit() {
     this.KeyboardObject.elements.main.classList.add("keyboard--hidden");
