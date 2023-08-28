@@ -1,199 +1,379 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="icon" type="image/x-icon" href="assets/coding.png">
-  <style>
-    .popup {
-  display: none;
-  position: fixed;
-  padding: 10px;
-  width: 280px;
-  left: 50%;
-  margin-left: -150px;
-  height: 180px;
-  top: 50%;
-  margin-top: -100px;
-  background: #FFF;
-  border: 3px solid #F04A49;
-  z-index: 20;
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help</title>
+        <link rel="icon" type="image/x-icon" href="assets/coding.png">
+   <style>
+    /*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 
-#popup:after {
-  position: fixed;
-  content: "";
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background: rgba(0,0,0,0.5);
-  z-index: -2;
-}
+/*=============== VARIABLES ===============*/
 
-#popup:before {
-  position: absolute;
-  content: "";
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background: #FFF;
-  z-index: -1;
+:root {
+  --background-color: #eeeeee;
+  --light-grey: #c4c1c1;
+  --accent-color: #b036e0;
 }
-
-/* Styling buttons & webpage */
 
 body {
-  background: offwhite;
-  font-family: Arial, sans-serif;
-  text-align: center;
-}
-
-button {
-    margin-top: 50px;
-    background-color: rgba(255,255,255,0.3);
-    border: 3px solid #F04A49;
-    color: #F04A49;
-    font-size: 25px;
-    padding: 10px 20px;
-    
-}
-
-button:hover {
-    background-color: #F04A49;
-    color: #FFF;
-    border: 3px solid #F04A49;
-    transition: all 0.3s ease 0s;
-}
-
-p {
-	margin: 1em 0;
-  font-size: 16px;
-}
-
-
-.popupk {
-  display: none;
-  /* position: fixed; */
-  padding: 10px;
-  width: 280px;
-  left: 50%;
-  margin-left: -150px;
-  height: 180px;
-  top: 50%;
-  margin-top: -100px;
-  background: #FFF;
-  border: 3px solid #F04A49;
-  z-index: 20;
-}
-
-#popupk:after {
-  position: fixed;
-  content: "";
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background: rgba(0,0,0,0.5);
-  z-index: -2;
-}
-
-#popupk:before {
-  position: absolute;
-  content: "";
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background: #362f2f;
-  z-index: -1;
-}
-
-/* Styling buttons & webpage */
-
-body {
-  background: offwhite;
-  font-family: Arial, sans-serif;
-  text-align: center;
-}
-
-button {
-    margin-top: 50px;
-    margin-left: 20px;
-    background-color: rgba(255,255,255,0.3);
-    border: 3px solid #F04A49;
-    color: #F04A49;
-    font-size: 25px;
-    padding: 10px 20px;
-    border-radius: 8px;
-    width: 30%;
-}
-
-button:hover {
-    background-color: #F04A49;
-    color: #FFF;
-    border: 3px solid #F04A49;
-    transition: all 0.3s ease 0s;
-}
-
-p {
-	margin: 1em 0;
-  font-size: 16px;
-}
-.container{
-  margin-top: 100px;
+  font-family: "Poppins", sans-serif;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-
+  height: 100vh;
+  margin: 0;
+  font-size: 16px;
+  background-color: var(--background-color);
 }
 
-  </style>
+.container {
+  text-align: center;
+  margin-top: 180px;
+}
+
+.progress-container {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin-bottom: 60px;
+  max-width: 100%;
+  width: 350px;
+}
+
+.progress-container::before {
+  content: "";
+  background-color: var(--light-grey);
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  height: 4px;
+  width: 100%;
+  z-index: -1;
+}
+
+.progress {
+  background-color: var(--accent-color);
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  height: 4px;
+  width: 0%;
+  z-index: -1;
+  transition: 0.4s ease;
+}
+
+.circle {
+  background: var(--light-grey);
+  color: var(--light-grey);
+  border-radius: 50%;
+  height: 10px;
+  width: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid var(--light-grey);
+  transition: 0.4s ease;
+}
+
+.circle.active {
+  border-color: var(--accent-color);
+  background-color: #fff;
+  color: var(--accent-color);
+  scale: 1.1;
+}
+
+.circle .icon {
+  position: absolute;
+  font-size: 25px;
+  bottom: 25px;
+}
+
+.circle .caption {
+  position: absolute;
+  font-size: 14px;
+  font-weight: bolder;
+  bottom: -55px;
+}
+
+.btn {
+  background: var(--accent-color);
+  color: #fff;
+  border: 0;
+  border-radius: 20px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  padding: 8px 30px;
+  margin: 30px 20px;
+}
+
+.btn:active {
+  transform: scale(0.9);
+}
+
+.btn:focus {
+  outline: 0;
+}
+
+.btn:disabled {
+  background-color: var(--light-grey);
+  cursor: not-allowed;
+}
+
+@media only screen and (max-width: 400px) {
+  .container {
+    width: 85%;
+  }
+}
+.popup{
+    background-color: #ffffff;
+    width: 320px;
+    padding: 30px 40px;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    top: 23%;
+    border-radius: 10px;
+    font-family: "Poppins",sans-serif;
+    display: none;
+    text-align: center;
+}
+.popup h2{
+	margin-top: -3px;
+    color: #b036e0;
+}
+.popup p{
+    font-size: 15px;
+    text-align: justify;
+    margin: 20px 0;
+    line-height: 25px;
+}
+   </style> 
 </head>
 <body>
-  <div class="container">
- <button class="button" href="#" onclick="show('popup1')">Download Keyboard</button>
-<!-- This is what will be included inside the popup -->
-<div class="popup" id="popup1">
-  <!-- <p>This is a popup!</p> -->
-  <!-- <p>Overlay uses <b>:before</b> and <b>:after</b> pseudo-classes.</p> -->
-  <p>Download Keyboard</p>
-  <a href="#" onclick="hide('popup1')">Close</a>
+    <!--=============== FONT AWESOME ===============-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+<div lang="eng">
+<div class="container">
+  <div class="progress-container">
+    <div class="progress" id="progress"></div>
+    <div class="circle">
+        <i class="icon fa-solid fa-keyboard"></i>
+
+      <div class="caption">Download Keyboard</div>
+    </div>
+    <div class="circle">
+        <i class="icon fa-solid fa-language"></i>
+
+      <div class="caption">Select <br>Keyboard</div>
+    </div>
+    <div class="circle">
+<i class="icon fa-solid fa-circle-check"></i>
+      <div class="caption">Mode <br>Selection</div>
+    </div>
+    <div class="circle">
+<i class="icon fa-solid fa-user-gear"></i>
+      <div class="caption">User Control</div>
+    </div>
+  </div>
+
+  <button class="btn" id="prev" disabled>Prev</button>
+  <button class="btn" id="next">Next</button>
+</div>
+
+ <div class="popup" id="popup1">
+        <h2>Download Keyboard</h2>
+        <p>
+            You can download keyboard from the menu, unzip it and follow the installation guide.
+        </p>
+        <!-- <a href="#">Let's Go</a> -->
+    </div>
+
+    <div class="popup" id="popup2">
+        <h2>Select Keyboard</h2>
+        <p>
+            You can select Nepali Unicode Romanized Keyboard Layout from taskbar or Press Win + Space from your keyboard.
+        </p>
+        <!-- <a href="#">Let's Go</a> -->
+    </div>
+
+    <div class="popup" id="popup3">
+        <h2>Mode Selection</h2>
+        <p>
+            You can select your preferred modes of game. <br>
+            <ul style="text-align: left; font-size: 15px;">
+                <li>Practice Mode (Recommended)</li>
+                <li>Tutor Mode</li>
+                <li>Game Mode</li>
+            </ul>  
+        </p>
+        <!-- <a href="#">Let's Go</a> -->
+    </div>
+
+    <div class="popup" id="popup4">
+        <h2>User Control</h2>
+        <p>
+            <ul style="text-align: left; font-size: 15px;">
+                <li><strong>Toggle Keyboard : </strong>To alter the visibility of keyboard layout.</li><br>
+                <li><strong>Slider : </strong>To control the Zombie's speed</li>
+            </ul>  
+        </p>
+        </div>
 </div>
 
 
-<button class="button" href="#" onclick="show('popup2')">Select Keyboard</button>
-<div class="popupk" id="popup2">
-  <p>Select Keyboard</p>
-  <a href="#" onclick="hide('popup2')">Close</a>
-</div> 
+<div lang="nep">
+        <div class="container">
+  <div class="progress-container">
+    <div class="progress" id="progress"></div>
+    <div class="circle">
+        <i class="icon fa-solid fa-keyboard"></i>
 
-<button class="button" href="#" onclick="show('popup3')">Mode Selection</button>
-<div class="popupk" id="popup3">
-  <p>Mode Selection</p>
-  <a href="#" onclick="hide('popup3')">Close</a>
-</div> 
+      <div class="caption">Download Keyboard</div>
+    </div>
+    <div class="circle">
+        <i class="icon fa-solid fa-language"></i>
 
-<button class="button" href="#" onclick="show('popup4')">User Control</button>
-<div class="popupk" id="popup4">
-  <p>User Control</p>
-  <a href="#" onclick="hide('popup4')">Close</a>
-</div> 
+      <div class="caption">Select <br>Keyboard</div>
+    </div>
+    <div class="circle">
+<i class="icon fa-solid fa-circle-check"></i>
+      <div class="caption">Mode <br>Selection</div>
+    </div>
+    <div class="circle">
+<i class="icon fa-solid fa-user-gear"></i>
+      <div class="caption">User Control</div>
+    </div>
+  </div>
 
+  <button class="btn" id="prev" disabled>Prev</button>
+  <button class="btn" id="next">Next</button>
 </div>
+
+ <div class="popup" id="popup1">
+        <h2>Download Keyboard</h2>
+        <p>
+            You can download keyboard from the menu, unzip it and follow the installation guide.
+        </p>
+        <!-- <a href="#">Let's Go</a> -->
+    </div>
+
+    <div class="popup" id="popup2">
+        <h2>Select Keyboard</h2>
+        <p>
+            You can select Nepali Unicode Romanized Keyboard Layout from taskbar or Press Win + Space from your keyboard.
+        </p>
+        <!-- <a href="#">Let's Go</a> -->
+    </div>
+
+    <div class="popup" id="popup3">
+        <h2>Mode Selection</h2>
+        <p>
+            You can select your preferred modes of game. <br>
+            <ul style="text-align: left; font-size: 15px;">
+                <li>Practice Mode (Recommended)</li>
+                <li>Tutor Mode</li>
+                <li>Game Mode</li>
+            </ul>  
+        </p>
+        <!-- <a href="#">Let's Go</a> -->
+    </div>
+
+    <div class="popup" id="popup4">
+        <h2>User Control</h2>
+        <p>
+            <ul style="text-align: left; font-size: 15px;">
+                <li><strong>Toggle Keyboard : </strong>To alter the visibility of keyboard layout.</li><br>
+                <li><strong>Slider : </strong>To control the Zombie's speed</li>
+            </ul>  
+        </p>
+        </div>
+        </div>
+        <!-- <a href="#">Let's Go</a> -->
+    
+<script src="./language.js"></script>
 <script>
-  $ = function(id) {
-  return document.getElementById(id);
-}
+  const progress = document.getElementById("progress");
+const prev = document.getElementById("prev");
+const next = document.getElementById("next");
+const cricles = document.querySelectorAll(".circle");
 
-var show = function(id) {
-	$(id).style.display ='block';
+let currentActive = 0;
+
+next.addEventListener("click", () => {
+  if (currentActive < cricles.length) {
+    currentActive++;
+  }
+  update();
+//   popup1();
+showpop(currentActive);
+});
+
+prev.addEventListener("click", () => {
+  if (currentActive > 1) {
+    currentActive--;
+  }
+  update();
+//   popup1();
+removepop(currentActive);
+});
+function showpop(curr){
+   if(curr==1){
+     document.querySelector("#popup1").style.display = "block";
+   }
+     if(curr==2){
+    document.querySelector("#popup1").style.display = "none";
+     document.querySelector("#popup2").style.display = "block";
+    }
+    else if(curr==3){
+     document.querySelector("#popup2").style.display = "none";
+     document.querySelector("#popup3").style.display = "block";
+    }
+    else if(curr==4){
+        document.querySelector("#popup3").style.display = "none";
+     document.querySelector("#popup4").style.display = "block";
+    }
 }
-var hide = function(id) {
-	$(id).style.display ='none';
+function removepop(curr){
+    if(curr==4)
+document.querySelector("#popup4").style.display = "block";
+  else if(curr==3){
+    document.querySelector("#popup4").style.display = "none";
+document.querySelector("#popup3").style.display = "block";
+  }
+  else if(curr==2){
+    document.querySelector("#popup3").style.display = "none";
+document.querySelector("#popup2").style.display = "block";
+  }
+  else if(curr==1){
+    document.querySelector("#popup2").style.display = "none";
+document.querySelector("#popup1").style.display = "block";
+  }
+}
+function update() {
+  cricles.forEach((circle, idx) => {
+    if (idx < currentActive) {
+      circle.classList.add("active");
+    } else {
+      circle.classList.remove("active");
+    }
+  });
+
+  progress.style.width =
+    ((currentActive - 1) / (cricles.length - 1)) * 100 + "%";
+
+  if (currentActive === 1) {
+    prev.disabled = true;
+  } else if (currentActive === cricles.length) {
+    next.disabled = true;
+  } else {
+    prev.disabled = false;
+    next.disabled = false;
+  }
 }
 </script>
 </body>
