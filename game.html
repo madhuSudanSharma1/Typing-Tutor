@@ -2,69 +2,69 @@
 <html lang="en">
 
 <head>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.3.1/p5.js"></script>
-  <script src="https://unpkg.com/p5.gif/dist/p5gif.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/addons/p5.sound.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="css/style.css">
-  <meta charset="utf-8">
-  <link rel="icon" type="image/x-icon" href="assets/coding.png">
-  <link rel="stylesheet" href="css/keyboard.css" />
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.3.1/p5.js"></script>
+    <script src="https://unpkg.com/p5.gif/dist/p5gif.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/addons/p5.sound.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <meta charset="utf-8">
+    <link rel="icon" type="image/x-icon" href="assets/coding.png">
+    <link rel="stylesheet" href="css/keyboard.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 
 <body>
-  <script>
-    const LANG = localStorage.getItem('language') || 'eng';
-    console.log(LANG)
-    const translation = {
-      'easy': 'सजिलो',
-      'normal': 'साधारण',
-      'hard': 'गाह्रो',
-      "level 1": "स्तर १",
-      "level 2": "स्तर २",
-      "level 3": "स्तर ३",
-      "level 4": "स्तर ४",
-      "level 5": "स्तर ५",
-      "back": "पछाडी",
-      "toggle keyboard": "किबोर्ड टगल",
-      "don't be a snail.": "यो त सङ्खेकिरा जस्तो भयो त।",
-      "too little, too late.": "कछुवा हैन खरायो बन्नुपर्यो।",
-      "you are as fast as an hare.": "तिमी त खरायो जस्तो छिटो रहेछौ।",
-      "sky is the limit for you.": "उद्देश्य के लिनु उडी छुनु चन्द्र एक।",
-    }
-    function getTextInCurrLang(text) {
-      if (LANG == 'eng')
-        return text
-      if (translation[text.toLowerCase()])
-        return translation[text.toLowerCase()];
-      return text
-      // alert('Translation not available for ',text);
-    }
-  </script>
-  <script src="./src/data/data.js"></script>
-  <script src="./src/keyboardAnalytics.js"></script>
-  <script src="./src/keyboardLayout.js"></script>
-  <script src="./src/keyboard.js"></script>
-  <script src="./src/button.js"></script>
-  <script src="./src/animation.js"></script>
-  <script src="./src/bomb.js"></script>
-  <script src="./src/zombie.js"></script>
-  <script src="./src/player.js"></script>
-  <script src="./src/zombieManager.js"></script>
-  <script src="./src/scenes/menuScene.js"></script>
-  <script src="./src/scenes/helpScene.js"></script>
-  <script src="./src/scenes/creditScene.js"></script>
-  <script src="./src/scenes/gameOverPlayScene.js"></script>
-  <script src="./src/scenes/gameOverTutorScene.js"></script>
-  <script src="./src/scenes/levelCompleteScene.js"></script>
-  <!-- <script src="./src/scenes/playScene.js"></script> -->
-  <script src="./src/slider.js"></script>
-  <script src="./src/scenes/normalPlayScene.js"></script>
-  <script src="./src/scenes/tutorScene.js"></script>
-  <script src="./src/sceneManager.js"></script>
-  <script src="sketch.js"></script>
+    <script>
+        const LANG = localStorage.getItem('language') || 'eng';
+        console.log(LANG)
+        const translation = {
+            'easy': 'सजिलो',
+            'normal': 'साधारण',
+            'hard': 'गाह्रो',
+            "level 1": "स्तर १",
+            "level 2": "स्तर २",
+            "level 3": "स्तर ३",
+            "level 4": "स्तर ४",
+            "level 5": "स्तर ५",
+            "back": "पछाडी",
+            "toggle keyboard": "किबोर्ड टगल",
+            "don't be a snail.": "यो त सङ्खेकिरा जस्तो भयो त।",
+            "too little, too late.": "कछुवा हैन खरायो बन्नुपर्यो।",
+            "you are as fast as an hare.": "तिमी त खरायो जस्तो छिटो रहेछौ।",
+            "sky is the limit for you.": "उद्देश्य के लिनु उडी छुनु चन्द्र एक।",
+        }
+        function getTextInCurrLang(text) {
+            if (LANG == 'eng')
+                return text
+            if (translation[text.toLowerCase()])
+                return translation[text.toLowerCase()];
+            return text
+            // alert('Translation not available for ',text);
+        }
+    </script>
+    <script src="./src/data/data.js"></script>
+    <script src="./src/keyboardAnalytics.js"></script>
+    <script src="./src/keyboardLayout.js"></script>
+    <script src="./src/keyboard.js"></script>
+    <script src="./src/button.js"></script>
+    <script src="./src/animation.js"></script>
+    <script src="./src/bomb.js"></script>
+    <script src="./src/zombie.js"></script>
+    <script src="./src/player.js"></script>
+    <script src="./src/zombieManager.js"></script>
+    <script src="./src/scenes/menuScene.js"></script>
+    <script src="./src/scenes/helpScene.js"></script>
+    <script src="./src/scenes/creditScene.js"></script>
+    <script src="./src/scenes/gameOverPlayScene.js"></script>
+    <script src="./src/scenes/gameOverTutorScene.js"></script>
+    <script src="./src/scenes/levelCompleteScene.js"></script>
+    <!-- <script src="./src/scenes/playScene.js"></script> -->
+    <script src="./src/slider.js"></script>
+    <script src="./src/scenes/normalPlayScene.js"></script>
+    <script src="./src/scenes/tutorScene.js"></script>
+    <script src="./src/sceneManager.js"></script>
+    <script src="sketch.js"></script>
 
 </body>
 

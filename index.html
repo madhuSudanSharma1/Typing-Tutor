@@ -2,26 +2,54 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Typing Tutor</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/x-icon" href="assets/coding.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Typing Tutor</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/x-icon" href="assets/coding.png">
+  <style>
+    .language {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+
+    .lang_button {
+      border-radius: 10000px;
+      padding: 5px 12px;
+      margin: 3px 10px;
+      opacity: 0.6;
+      background-color: transparent;
+      color: aliceblue;
+      border: 2px solid white;
+    }
+
+    .lang_button.active {
+      background-color: green;
+      color: black;
+      opacity: 1;
+    }
+
+    .lang_button:hover {
+      cursor: pointer;
+      opacity: 1;
+    }
+  </style>
 </head>
 
 <body>
-    <div class="language">
-       <!-- <a href="index.html"> ENG</a> |
+  <div class="language">
+    <!-- <a href="index.html"> ENG</a> |
        <a href="index.html?lang=np"> NEP</a>  -->
-        <button id="eng">ENG</button>
-        <button id="nep">NEP</button>
-    </div>
-    <div class="menu_body" lang="eng">
-        <h1 style="color:#FFFF; font-size: 3.5rem">Typing Tutor</h1>
-        <!-- <a href="game.html?mode=practice" class="menu_level">Practice Mode</a>
+    <button class="lang_button" id="eng">ENG</button>
+    <button class="lang_button" id="nep">NEP</button>
+  </div>
+  <div class="menu_body" lang="eng">
+    <h1 style="color:#FFFF; font-size: 3.5rem">Typing Tutor</h1>
+    <!-- <a href="game.html?mode=practice" class="menu_level">Practice Mode</a>
         <a href="game.html?mode=tutor" class="menu_level">Tutor Mode</a> -->
-        <!-- <a href="menu.html?mode=mode2" class="menu_level">Tutor Mode</a> -->
-        <!-- <a href="game.html?mode=game" class="menu_level">Game Mode</a>
+    <!-- <a href="menu.html?mode=mode2" class="menu_level">Tutor Mode</a> -->
+    <!-- <a href="game.html?mode=game" class="menu_level">Game Mode</a>
         <a href="./assets/Romanized Nepali Unicode.zip" download class="menu_level">Download Keyboard</a>
         <a href="help.html" class="menu_level">Help</a> -->
          <a href="game.html?mode=practice" style="text-decoration: none; color: #FFFF;">Practice Mode</a>
@@ -34,8 +62,8 @@
         <!-- <h1>टाइपिङ ट्युटर</h1> -->
         <!-- <a href="game.html?mode=practice" class="menu_level">अभ्यास</a>
         <a href="game.html?mode=tutor" class="menu_level">सिकाउने</a> -->
-        <!-- <a href="menu.html?mode=mode2" class="menu_level">सिकाउने</a> -->
-        <!-- <a href="game.html?mode=game" class="menu_level">खेल्दै सिक्दै</a>
+    <!-- <a href="menu.html?mode=mode2" class="menu_level">सिकाउने</a> -->
+    <!-- <a href="game.html?mode=game" class="menu_level">खेल्दै सिक्दै</a>
         <a href="./assets/Romanized Nepali Unicode.zip" download class="menu_level">किबोर्ड डाउन्लोड गर्नुहोस्‌</a>
         <a href="#" class="menu_level">सहयोग</a> -->
         <h1 style="color:#FFFF; font-size: 3.5rem">टाइपिङ ट्‌युटर</h1>
@@ -47,7 +75,8 @@
     </div>
 
 
-    <script src="./language.js"></script>
-    <!-- <script src="words.js"></script> -->
+  <script src="./language.js"></script>
+  <!-- <script src="words.js"></script> -->
 </body>
+
 </html>
