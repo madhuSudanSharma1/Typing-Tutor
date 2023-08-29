@@ -1,394 +1,425 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Help</title>
-        <link rel="icon" type="image/x-icon" href="assets/coding.png">
-   <style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Help</title>
+  <link rel="icon" type="image/x-icon" href="assets/coding.png">
+  <style>
     /*=============== GOOGLE FONTS ===============*/
-@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+    @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 
-/*=============== VARIABLES ===============*/
+    /*=============== VARIABLES ===============*/
 
-:root {
-  --background-color: #eeeeee;
-  --light-grey: #c4c1c1;
-  --accent-color: #b036e0;
-}
+    :root {
+      --background-color: #eeeeee;
+      --light-grey: #c4c1c1;
+      --accent-color: #b036e0;
+    }
 
-body {
-  font-family: "Poppins", sans-serif;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  margin: 0;
-  font-size: 16px;
-  background-color: var(--background-color);
-}
+    body {
+      font-family: "Poppins", sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      font-size: 16px;
+      background-color: var(--background-color);
+    }
 
-.container {
-  text-align: center;
-  margin-top: 180px;
-}
+    .container {
+      text-align: center;
+      margin-top: 180px;
+    }
 
-.progress-container {
-  display: flex;
-  justify-content: space-between;
-  position: relative;
-  margin-bottom: 60px;
-  max-width: 100%;
-  width: 350px;
-}
+    .progress-container {
+      display: flex;
+      justify-content: space-between;
+      position: relative;
+      margin-bottom: 60px;
+      max-width: 100%;
+      width: 350px;
+    }
 
-.progress-container::before {
-  content: "";
-  background-color: var(--light-grey);
-  position: absolute;
-  top: 50%;
-  left: 0;
-  transform: translateY(-50%);
-  height: 4px;
-  width: 100%;
-  z-index: -1;
-}
+    .progress-container::before {
+      content: "";
+      background-color: var(--light-grey);
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      height: 4px;
+      width: 100%;
+      z-index: -1;
+    }
 
-.progress {
-  background-color: var(--accent-color);
-  position: absolute;
-  top: 50%;
-  left: 0;
-  transform: translateY(-50%);
-  height: 4px;
-  width: 0%;
-  z-index: -1;
-  transition: 0.4s ease;
-}
+    .progress {
+      background-color: var(--accent-color);
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      height: 4px;
+      width: 0%;
+      z-index: -1;
+      transition: 0.4s ease;
+    }
 
-.circle, .circle1 {
-  background: var(--light-grey);
-  color: var(--light-grey);
-  border-radius: 50%;
-  height: 10px;
-  width: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 3px solid var(--light-grey);
-  transition: 0.4s ease;
-}
+    .circle,
+    .circle1 {
+      background: var(--light-grey);
+      color: var(--light-grey);
+      border-radius: 50%;
+      height: 10px;
+      width: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 3px solid var(--light-grey);
+      transition: 0.4s ease;
+    }
 
-.circle.active , .circle1.active {
-  border-color: var(--accent-color);
-  background-color: #fff;
-  color: var(--accent-color);
-  scale: 1.1;
-}
+    .circle.active,
+    .circle1.active {
+      border-color: var(--accent-color);
+      background-color: #fff;
+      color: var(--accent-color);
+      scale: 1.1;
+    }
 
-.circle .icon , .circle1 .icon{
-  position: absolute;
-  font-size: 25px;
-  bottom: 25px;
-}
+    .circle .icon,
+    .circle1 .icon {
+      position: absolute;
+      font-size: 25px;
+      bottom: 25px;
+    }
 
-.circle .caption , .circle1 .caption{
-  position: absolute;
-  font-size: 14px;
-  font-weight: bolder;
-  bottom: -55px;
-}
+    .circle .caption,
+    .circle1 .caption {
+      position: absolute;
+      font-size: 14px;
+      font-weight: bolder;
+      bottom: -55px;
+    }
 
-.btn {
-  background: var(--accent-color);
-  color: #fff;
-  border: 0;
-  border-radius: 20px;
-  cursor: pointer;
-  font-family: inherit;
-  font-size: inherit;
-  padding: 8px 30px;
-  margin: 30px 20px;
-}
+    .btn {
+      background: var(--accent-color);
+      color: #fff;
+      border: 0;
+      border-radius: 20px;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: inherit;
+      padding: 8px 30px;
+      margin: 30px 20px;
+    }
 
-.btn:active {
-  transform: scale(0.9);
-}
+    .btn:active {
+      transform: scale(0.9);
+    }
 
-.btn:focus {
-  outline: 0;
-}
+    .btn:focus {
+      outline: 0;
+    }
 
-.btn:disabled {
-  background-color: var(--light-grey);
-  cursor: not-allowed;
-}
+    .btn:disabled {
+      background-color: var(--light-grey);
+      cursor: not-allowed;
+    }
 
-@media only screen and (max-width: 400px) {
-  .container {
-    width: 85%;
-  }
-}
-.popup{
-    background-color: #ffffff;
-    width: 320px;
-    padding: 10px 40px;
-    position: absolute;
-    transform: translate(-50%,-50%);
-    left: 50%;
-    top: 22%;
-    border-radius: 10px;
-    font-family: "Poppins",sans-serif;
-    display: none;
-    text-align: center;
-}
-.popup h2{
-	margin-top: -3px;
-    color: #b036e0;
-}
-.popup p{
-    font-size: 15px;
-    text-align: justify;
-    margin: 20px 0;
-    line-height: 25px;
-}
-.disp_none{
-  display: none;
-}
-   </style> 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+    @media only screen and (max-width: 400px) {
+      .container {
+        width: 85%;
+      }
+    }
+
+    .popup {
+      background-color: #ffffff;
+      width: 320px;
+      padding: 10px 40px;
+      position: absolute;
+      transform: translate(-50%, -50%);
+      left: 50%;
+      top: 22%;
+      border-radius: 10px;
+      font-family: "Poppins", sans-serif;
+      display: none;
+      text-align: center;
+    }
+
+    .popup h2 {
+      margin-top: -3px;
+      color: #b036e0;
+    }
+
+    .popup p {
+      font-size: 15px;
+      text-align: justify;
+      margin: 20px 0;
+      line-height: 25px;
+    }
+
+    .disp_none {
+      display: none;
+    }
+
+    .to_home {
+      padding: 10px 20px;
+      cursor: pointer;
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      font-size: 150%;
+      text-decoration: none;
+    }
+
+    .to_home:hover {
+      color: blue;
+      text-decoration: underline;
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
 </head>
+
 <body>
-    <!--=============== FONT AWESOME ===============-->
-<button id="eng" class="disp_none">ENG</button>
-<button id="nep" class="disp_none">NEP</button>
-<div lang="eng">
-<div class="container">
-  <div class="progress-container">
-    <div class="progress eng_progress" id="progress"></div>
-    <div class="circle">
-        <i class="icon fa-solid fa-keyboard"></i>
+  <!--=============== FONT AWESOME ===============-->
 
-      <div class="caption">Download Keyboard</div>
-    </div>
-    <div class="circle">
-        <i class="icon fa-solid fa-language"></i>
+  <a class="to_home" href="/">&lt;- Back</a>
+  <button id="eng" class="disp_none">ENG</button>
+  <button id="nep" class="disp_none">NEP</button>
+  <div lang="eng">
+    <div class="container">
+      <div class="progress-container">
+        <div class="progress eng_progress" id="progress"></div>
+        <div class="circle">
+          <i class="icon fa-solid fa-keyboard"></i>
 
-      <div class="caption">Select <br>Keyboard</div>
-    </div>
-    <div class="circle">
-<i class="icon fa-solid fa-circle-check"></i>
-      <div class="caption">Mode <br>Selection</div>
-    </div>
-    <div class="circle">
-<i class="icon fa-solid fa-user-gear"></i>
-      <div class="caption">User Control</div>
-    </div>
-  </div>
+          <div class="caption">Download Keyboard</div>
+        </div>
+        <div class="circle">
+          <i class="icon fa-solid fa-language"></i>
 
-  <button class="btn eng_prev" id="prev" disabled>Prev</button>
-  <button class="btn eng_next" id="next">Next</button>
-</div>
+          <div class="caption">Select <br>Keyboard</div>
+        </div>
+        <div class="circle">
+          <i class="icon fa-solid fa-circle-check"></i>
+          <div class="caption">Mode <br>Selection</div>
+        </div>
+        <div class="circle">
+          <i class="icon fa-solid fa-user-gear"></i>
+          <div class="caption">User Control</div>
+        </div>
+      </div>
 
- <div class="popup popup1" id="popup1">
-        <h2>Download Keyboard</h2>
-        <p>
-            You can download keyboard from the menu, unzip it and follow the installation guide.
-        </p>
-        <!-- <a href="#">Let's Go</a> -->
+      <button class="btn eng_prev" id="prev" disabled>Prev</button>
+      <button class="btn eng_next" id="next">Next</button>
+    </div>
+
+    <div class="popup popup1" id="popup1">
+      <h2>Download Keyboard</h2>
+      <p>
+        You can download keyboard from the menu, unzip it and follow the installation guide.
+      </p>
+      <!-- <a href="#">Let's Go</a> -->
     </div>
 
     <div class="popup popup2" id="popup2">
-        <h2>Select Keyboard</h2>
-        <p>
-            You can select Nepali Unicode Romanized Keyboard Layout from taskbar or Press Win + Space from your keyboard.
-        </p>
-        <!-- <a href="#">Let's Go</a> -->
+      <h2>Select Keyboard</h2>
+      <p>
+        You can select Nepali Unicode Romanized Keyboard Layout from taskbar or Press Win + Space from your
+        keyboard.
+      </p>
+      <!-- <a href="#">Let's Go</a> -->
     </div>
 
     <div class="popup popup3" id="popup3">
-        <h2>Mode Selection</h2>
-        <p>
-            You can select your preferred modes of game. <br>
-            <ul style="text-align: left; font-size: 15px;">
-                <li>Practice Mode (Recommended)</li>
-                <li>Tutor Mode</li>
-                <li>Game Mode</li>
-            </ul>  
-        </p>
-        <!-- <a href="#">Let's Go</a> -->
+      <h2>Mode Selection</h2>
+      <p>
+        You can select your preferred modes of game. <br>
+      <ul style="text-align: left; font-size: 15px;">
+        <li>Practice Mode (Recommended)</li>
+        <li>Tutor Mode</li>
+        <li>Game Mode</li>
+      </ul>
+      </p>
+      <!-- <a href="#">Let's Go</a> -->
     </div>
 
     <div class="popup popup4" id="popup4">
-        <h2>User Control</h2>
-        <p>
-            <ul style="text-align: left; font-size: 15px;">
-                <li><strong>Toggle Keyboard : </strong>To alter the visibility of keyboard layout.</li><br>
-                <li><strong>Slider : </strong>To control the Zombie's speed</li>
-            </ul>  
-        </p>
-        </div>
-</div>
-
-
-<div lang="nep">
-        <div class="container">
-  <div class="progress-container">
-    <div class="progress nep_progress" id="progress"></div>
-    <div class="circle1">
-        <i class="icon fa-solid fa-keyboard"></i>
-
-      <div class="caption">डाउन्लोड किबोर्ड</div>
-    </div>
-    <div class="circle1">
-        <i class="icon fa-solid fa-language"></i>
-
-      <div class="caption" style="width: 100px;">किबोर्ड चयन गर्नुहोस् </div>
-    </div>
-    <div class="circle1">
-<i class="icon fa-solid fa-circle-check"></i>
-      <div class="caption" >मोड <br>चयन</div>
-    </div>
-    <div class="circle1">
-<i class="icon fa-solid fa-user-gear"></i>
-      <div class="caption">प्रयोगकर्ता नियन्त्रण</div>
+      <h2>User Control</h2>
+      <p>
+      <ul style="text-align: left; font-size: 15px;">
+        <li><strong>Toggle Keyboard : </strong>To alter the visibility of keyboard layout.</li><br>
+        <li><strong>Slider : </strong>To control the Zombie's speed</li>
+      </ul>
+      </p>
     </div>
   </div>
 
-  <button class="btn nep_prev" id="prev" disabled>पछाडी</button>
-  <button class="btn nep_next" id="next">अगाडी</button>
-</div>
 
- <div class="popup npopup1" id="popup1">
-        <h2>डाउन्लोड किबोर्ड</h2>
-        <p>
-            तपाईं मेनुबाट किबोर्ड डाउनलोड गर्न सक्नुहुन्छ, यसलाई अनजिप गर्नुहोस् र स्थापना गाइडलाई पछ्याउनुहोस्।
-        </p>
-        <!-- <a href="#">Let's Go</a> -->
+  <div lang="nep">
+    <div class="container">
+      <div class="progress-container">
+        <div class="progress nep_progress" id="progress"></div>
+        <div class="circle1">
+          <i class="icon fa-solid fa-keyboard"></i>
+
+          <div class="caption">डाउन्लोड किबोर्ड</div>
+        </div>
+        <div class="circle1">
+          <i class="icon fa-solid fa-language"></i>
+
+          <div class="caption" style="width: 100px;">किबोर्ड चयन गर्नुहोस् </div>
+        </div>
+        <div class="circle1">
+          <i class="icon fa-solid fa-circle-check"></i>
+          <div class="caption">मोड <br>चयन</div>
+        </div>
+        <div class="circle1">
+          <i class="icon fa-solid fa-user-gear"></i>
+          <div class="caption">प्रयोगकर्ता नियन्त्रण</div>
+        </div>
+      </div>
+
+      <button class="btn nep_prev" id="prev" disabled>पछाडी</button>
+      <button class="btn nep_next" id="next">अगाडी</button>
     </div>
 
-    <div class="popup npopup2" id="popup2" >
-        <h2 >किबोर्ड चयन गर्नुहोस्</h2>
-        <p>
-            तपाइँ टास्कबारबाट नेपाली युनिकोड रोमनाइज्ड किबोर्ड लेआउट चयन गर्न सक्नुहुन्छ वा तपाइँको किबोर्डबाट Win + Space थिच्न सक्नुहुन्छ।
-        </p>
-        <!-- <a href="#">Let's Go</a> -->
+    <div class="popup npopup1" id="popup1">
+      <h2>डाउन्लोड किबोर्ड</h2>
+      <p>
+        तपाईं मेनुबाट किबोर्ड डाउनलोड गर्न सक्नुहुन्छ, यसलाई अनजिप गर्नुहोस् र स्थापना गाइडलाई पछ्याउनुहोस्।
+      </p>
+      <!-- <a href="#">Let's Go</a> -->
+    </div>
+
+    <div class="popup npopup2" id="popup2">
+      <h2>किबोर्ड चयन गर्नुहोस्</h2>
+      <p>
+        तपाइँ टास्कबारबाट नेपाली युनिकोड रोमनाइज्ड किबोर्ड लेआउट चयन गर्न सक्नुहुन्छ वा तपाइँको किबोर्डबाट Win +
+        Space
+        थिच्न सक्नुहुन्छ।
+      </p>
+      <!-- <a href="#">Let's Go</a> -->
     </div>
 
     <div class="popup npopup3" id="popup3">
-        <h2>मोड चयन</h2>
-        <p>
-            तपाईं खेल को आफ्नो मनपर्ने मोड चयन गर्न सक्नुहुन्छ।  <br>
-            <ul style="text-align: left; font-size: 15px;">
-                <li>अभ्यास मोड (सिफारिस गरिएको)</li>
-                <li>ट्यूटर मोड</li>
-                <li>खेल्दै सिक्दै </li>
-            </ul>  
-        </p>
-        <!-- <a href="#">Let's Go</a> -->
+      <h2>मोड चयन</h2>
+      <p>
+        तपाईं खेल को आफ्नो मनपर्ने मोड चयन गर्न सक्नुहुन्छ। <br>
+      <ul style="text-align: left; font-size: 15px;">
+        <li>अभ्यास मोड (सिफारिस गरिएको)</li>
+        <li>ट्यूटर मोड</li>
+        <li>खेल्दै सिक्दै </li>
+      </ul>
+      </p>
+      <!-- <a href="#">Let's Go</a> -->
     </div>
 
     <div class="popup npopup4" id="popup4">
-        <h2>प्रयोगकर्ता नियन्त्रण</h2>
-        <p>
-            <ul style="text-align: left; font-size: 15px;">
-                <li><strong>किबोर्ड टगल गर्नुहोस् : </strong> किबोर्ड लेआउटको दृश्यता परिवर्तन गर्न।</li><br>
-                <li><strong>स्लाइडर : </strong>जोम्बीको गति नियन्त्रण गर्न</li>
-            </ul>  
-        </p>
-        </div>
-</div>
+      <h2>प्रयोगकर्ता नियन्त्रण</h2>
+      <p>
+      <ul style="text-align: left; font-size: 15px;">
+        <li><strong>किबोर्ड टगल गर्नुहोस् : </strong> किबोर्ड लेआउटको दृश्यता परिवर्तन गर्न।</li><br>
+        <li><strong>स्लाइडर : </strong>जोम्बीको गति नियन्त्रण गर्न</li>
+      </ul>
+      </p>
+    </div>
+  </div>
 
-<script src="./language.js"></script>
-<script>
-  const _lang=localStorage.getItem('language') || 'eng';
-  const progress = document.querySelector(`.${_lang}_progress`);
+  <script src="./language.js"></script>
+  <script>
+    const _lang = localStorage.getItem('language') || 'eng';
+    const progress = document.querySelector(`.${_lang}_progress`);
 
-const prev = document.querySelector(`.${_lang}_prev`);
-const next = document.querySelector(`.${_lang}_next`);
+    const prev = document.querySelector(`.${_lang}_prev`);
+    const next = document.querySelector(`.${_lang}_next`);
 
-let cricles ;
+    let cricles;
 
-if(_lang=='eng')
-  cricles=document.querySelectorAll(".circle");
-else
-  cricles = document.querySelectorAll(".circle1");
+    if (_lang == 'eng')
+      cricles = document.querySelectorAll(".circle");
+    else
+      cricles = document.querySelectorAll(".circle1");
 
-let currentActive = 0;
+    let currentActive = 0;
 
-next.addEventListener("click", () => {
-  if (currentActive < cricles.length) {
-    currentActive++;
-  }
-  update();
-//   popup1();
-showpop(currentActive);
-});
+    next.addEventListener("click", () => {
+      if (currentActive < cricles.length) {
+        currentActive++;
+      }
+      update();
+      //   popup1();
+      showpop(currentActive);
+    });
 
-prev.addEventListener("click", () => {
-  if (currentActive > 1) {
-    currentActive--;
-  }
-  update();
-//   popup1();
-removepop(currentActive);
-});
+    prev.addEventListener("click", () => {
+      if (currentActive > 1) {
+        currentActive--;
+      }
+      update();
+      //   popup1();
+      removepop(currentActive);
+    });
 
-function showpop(curr){
-  if(curr==1){
-    document.querySelector(`${_lang=='eng'?'.popup1':'.npopup1'}`).style.display = "block";
-   }
-     if(curr==2){
-    document.querySelector(`${_lang=='eng'?'.popup1':'.npopup1'}`).style.display = "none";
-     document.querySelector(`${_lang=='eng'?'.popup2':'.npopup2'}`).style.display = "block";
+    function showpop(curr) {
+      if (curr == 1) {
+        document.querySelector(`${_lang == 'eng' ? '.popup1' : '.npopup1'}`).style.display = "block";
+      }
+      if (curr == 2) {
+        document.querySelector(`${_lang == 'eng' ? '.popup1' : '.npopup1'}`).style.display = "none";
+        document.querySelector(`${_lang == 'eng' ? '.popup2' : '.npopup2'}`).style.display = "block";
+      }
+      else if (curr == 3) {
+        document.querySelector(`${_lang == 'eng' ? '.popup2' : '.npopup2'}`).style.display = "none";
+        document.querySelector(`${_lang == 'eng' ? '.popup3' : '.npopup3'}`).style.display = "block";
+      }
+      else if (curr == 4) {
+        document.querySelector(`${_lang == 'eng' ? '.popup3' : '.npopup3'}`).style.display = "none";
+        document.querySelector(`${_lang == 'eng' ? '.popup4' : '.npopup4'}`).style.display = "block";
+      }
     }
-    else if(curr==3){
-     document.querySelector(`${_lang=='eng'?'.popup2':'.npopup2'}`).style.display = "none";
-     document.querySelector(`${_lang=='eng'?'.popup3':'.npopup3'}`).style.display = "block";
+    function removepop(curr) {
+      if (curr == 4)
+        document.querySelector(`${_lang == 'eng' ? '.popup4' : '.npopup4'}`).style.display = "block";
+      else if (curr == 3) {
+        document.querySelector(`${_lang == 'eng' ? '.popup4' : '.npopup4'}`).style.display = "none";
+        document.querySelector(`${_lang == 'eng' ? '.popup3' : '.npopup3'}`).style.display = "block";
+      }
+      else if (curr == 2) {
+        document.querySelector(`${_lang == 'eng' ? '.popup3' : '.npopup3'}`).style.display = "none";
+        document.querySelector(`${_lang == 'eng' ? '.popup2' : '.npopup2'}`).style.display = "block";
+      }
+      else if (curr == 1) {
+        document.querySelector(`${_lang == 'eng' ? '.popup2' : '.npopup2'}`).style.display = "none";
+        document.querySelector(`${_lang == 'eng' ? '.popup1' : '.npopup1'}`).style.display = "block";
+      }
     }
-    else if(curr==4){
-        document.querySelector(`${_lang=='eng'?'.popup3':'.npopup3'}`).style.display = "none";
-     document.querySelector(`${_lang=='eng'?'.popup4':'.npopup4'}`).style.display = "block";
-    }
-}
-function removepop(curr){
-    if(curr==4)
-document.querySelector(`${_lang=='eng'?'.popup4':'.npopup4'}`).style.display = "block";
-  else if(curr==3){
-    document.querySelector(`${_lang=='eng'?'.popup4':'.npopup4'}`).style.display = "none";
-document.querySelector(`${_lang=='eng'?'.popup3':'.npopup3'}`).style.display = "block";
-  }
-  else if(curr==2){
-    document.querySelector(`${_lang=='eng'?'.popup3':'.npopup3'}`).style.display = "none";
-document.querySelector(`${_lang=='eng'?'.popup2':'.npopup2'}`).style.display = "block";
-  }
-  else if(curr==1){
-    document.querySelector(`${_lang=='eng'?'.popup2':'.npopup2'}`).style.display = "none";
-document.querySelector(`${_lang=='eng'?'.popup1':'.npopup1'}`).style.display = "block";
-  }
-}
-function update() {
-  cricles.forEach((circle, idx) => {
-    if (idx < currentActive) {
-      circle.classList.add("active");
-    } else {
-      circle.classList.remove("active");
-    }
-  });
+    function update() {
+      cricles.forEach((circle, idx) => {
+        if (idx < currentActive) {
+          circle.classList.add("active");
+        } else {
+          circle.classList.remove("active");
+        }
+      });
 
-  progress.style.width =
-    ((currentActive - 1) / (cricles.length - 1)) * 100 + "%";
+      progress.style.width =
+        ((currentActive - 1) / (cricles.length - 1)) * 100 + "%";
 
-  if (currentActive === 1) {
-    prev.disabled = true;
-  } else if (currentActive === cricles.length) {
-    next.disabled = true;
-  } else {
-    prev.disabled = false;
-    next.disabled = false;
-  }
-}
-</script>
+      if (currentActive === 1) {
+        prev.disabled = true;
+      } else if (currentActive === cricles.length) {
+        next.disabled = true;
+      } else {
+        prev.disabled = false;
+        next.disabled = false;
+      }
+    }
+  </script>
 
 </body>
+
 </html>
