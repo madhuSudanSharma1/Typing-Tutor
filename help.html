@@ -66,7 +66,7 @@ body {
   transition: 0.4s ease;
 }
 
-.circle {
+.circle, .circle1 {
   background: var(--light-grey);
   color: var(--light-grey);
   border-radius: 50%;
@@ -79,20 +79,20 @@ body {
   transition: 0.4s ease;
 }
 
-.circle.active {
+.circle.active , .circle1.active {
   border-color: var(--accent-color);
   background-color: #fff;
   color: var(--accent-color);
   scale: 1.1;
 }
 
-.circle .icon {
+.circle .icon , .circle1 .icon{
   position: absolute;
   font-size: 25px;
   bottom: 25px;
 }
 
-.circle .caption {
+.circle .caption , .circle1 .caption{
   position: absolute;
   font-size: 14px;
   font-weight: bolder;
@@ -132,11 +132,11 @@ body {
 .popup{
     background-color: #ffffff;
     width: 320px;
-    padding: 30px 40px;
+    padding: 10px 40px;
     position: absolute;
     transform: translate(-50%,-50%);
     left: 50%;
-    top: 23%;
+    top: 22%;
     border-radius: 10px;
     font-family: "Poppins",sans-serif;
     display: none;
@@ -156,10 +156,10 @@ body {
   display: none;
 }
    </style> 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
 </head>
 <body>
     <!--=============== FONT AWESOME ===============-->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
 <button id="eng" class="disp_none">ENG</button>
 <button id="nep" class="disp_none">NEP</button>
 <div lang="eng">
@@ -235,21 +235,21 @@ body {
         <div class="container">
   <div class="progress-container">
     <div class="progress nep_progress" id="progress"></div>
-    <div class="circle">
+    <div class="circle1">
         <i class="icon fa-solid fa-keyboard"></i>
 
       <div class="caption">डाउन्लोड किबोर्ड</div>
     </div>
-    <div class="circle">
+    <div class="circle1">
         <i class="icon fa-solid fa-language"></i>
 
-      <div class="caption">किबोर्ड चयन <br>गर्नुहोस् </div>
+      <div class="caption" style="width: 100px;">किबोर्ड चयन गर्नुहोस् </div>
     </div>
-    <div class="circle">
+    <div class="circle1">
 <i class="icon fa-solid fa-circle-check"></i>
-      <div class="caption">मोड चयन</div>
+      <div class="caption" >मोड <br>चयन</div>
     </div>
-    <div class="circle">
+    <div class="circle1">
 <i class="icon fa-solid fa-user-gear"></i>
       <div class="caption">प्रयोगकर्ता नियन्त्रण</div>
     </div>
@@ -259,7 +259,7 @@ body {
   <button class="btn nep_next" id="next">Next</button>
 </div>
 
- <div class="popup popup1" id="popup1">
+ <div class="popup npopup1" id="popup1">
         <h2>डाउन्लोड किबोर्ड</h2>
         <p>
             तपाईं मेनुबाट किबोर्ड डाउनलोड गर्न सक्नुहुन्छ, यसलाई अनजिप गर्नुहोस् र स्थापना गाइडलाई पछ्याउनुहोस्।
@@ -267,15 +267,15 @@ body {
         <!-- <a href="#">Let's Go</a> -->
     </div>
 
-    <div class="popup popup2" id="popup2">
-        <h2>किबोर्ड चयन गर्नुहोस्</h2>
+    <div class="popup npopup2" id="popup2" >
+        <h2 >किबोर्ड चयन गर्नुहोस्</h2>
         <p>
             तपाइँ टास्कबारबाट नेपाली युनिकोड रोमनाइज्ड किबोर्ड लेआउट चयन गर्न सक्नुहुन्छ वा तपाइँको किबोर्डबाट Win + Space थिच्न सक्नुहुन्छ।
         </p>
         <!-- <a href="#">Let's Go</a> -->
     </div>
 
-    <div class="popup popup3" id="popup3">
+    <div class="popup npopup3" id="popup3">
         <h2>मोड चयन</h2>
         <p>
             तपाईं खेल को आफ्नो मनपर्ने मोड चयन गर्न सक्नुहुन्छ।  <br>
@@ -288,7 +288,7 @@ body {
         <!-- <a href="#">Let's Go</a> -->
     </div>
 
-    <div class="popup popup4" id="popup4">
+    <div class="popup npopup4" id="popup4">
         <h2>प्रयोगकर्ता नियन्त्रण</h2>
         <p>
             <ul style="text-align: left; font-size: 15px;">
@@ -297,9 +297,8 @@ body {
             </ul>  
         </p>
         </div>
-        </div>
-        <!-- <a href="#">Let's Go</a> -->
-    
+</div>
+
 <script src="./language.js"></script>
 <script>
   const _lang=localStorage.getItem('language') || 'eng';
@@ -307,7 +306,13 @@ body {
 
 const prev = document.querySelector(`.${_lang}_prev`);
 const next = document.querySelector(`.${_lang}_next`);
-const cricles = document.querySelectorAll(".circle");
+
+let cricles ;
+
+if(_lang=='eng')
+  cricles=document.querySelectorAll(".circle");
+else
+  cricles = document.querySelectorAll(".circle1");
 
 let currentActive = 0;
 
@@ -328,37 +333,38 @@ prev.addEventListener("click", () => {
 //   popup1();
 removepop(currentActive);
 });
+
 function showpop(curr){
-   if(curr==1){
-     document.querySelector(".popup1").style.display = "block";
+  if(curr==1){
+    document.querySelector(`${_lang=='eng'?'.popup1':'.npopup1'}`).style.display = "block";
    }
      if(curr==2){
-    document.querySelector(".popup1").style.display = "none";
-     document.querySelector(".popup2").style.display = "block";
+    document.querySelector(`${_lang=='eng'?'.popup1':'.npopup1'}`).style.display = "none";
+     document.querySelector(`${_lang=='eng'?'.popup2':'.npopup2'}`).style.display = "block";
     }
     else if(curr==3){
-     document.querySelector(".popup2").style.display = "none";
-     document.querySelector(".popup3").style.display = "block";
+     document.querySelector(`${_lang=='eng'?'.popup2':'.npopup2'}`).style.display = "none";
+     document.querySelector(`${_lang=='eng'?'.popup3':'.npopup3'}`).style.display = "block";
     }
     else if(curr==4){
-        document.querySelector(".popup3").style.display = "none";
-     document.querySelector(".popup4").style.display = "block";
+        document.querySelector(`${_lang=='eng'?'.popup3':'.npopup3'}`).style.display = "none";
+     document.querySelector(`${_lang=='eng'?'.popup4':'.npopup4'}`).style.display = "block";
     }
 }
 function removepop(curr){
     if(curr==4)
-document.querySelector(".popup4").style.display = "block";
+document.querySelector(`${_lang=='eng'?'.popup4':'.npopup4'}`).style.display = "block";
   else if(curr==3){
-    document.querySelector(".popup4").style.display = "none";
-document.querySelector(".popup3").style.display = "block";
+    document.querySelector(`${_lang=='eng'?'.popup4':'.npopup4'}`).style.display = "none";
+document.querySelector(`${_lang=='eng'?'.popup3':'.npopup3'}`).style.display = "block";
   }
   else if(curr==2){
-    document.querySelector(".popup3").style.display = "none";
-document.querySelector(".popup2").style.display = "block";
+    document.querySelector(`${_lang=='eng'?'.popup3':'.npopup3'}`).style.display = "none";
+document.querySelector(`${_lang=='eng'?'.popup2':'.npopup2'}`).style.display = "block";
   }
   else if(curr==1){
-    document.querySelector(".popup2").style.display = "none";
-document.querySelector(".popup1").style.display = "block";
+    document.querySelector(`${_lang=='eng'?'.popup2':'.npopup2'}`).style.display = "none";
+document.querySelector(`${_lang=='eng'?'.popup1':'.npopup1'}`).style.display = "block";
   }
 }
 function update() {

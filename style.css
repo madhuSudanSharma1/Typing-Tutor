@@ -145,6 +145,18 @@ body {
     display: none !important;
   }
 
+  .language{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+  .language button{
+    background-color: transparent;
+    color: aliceblue;
+    border: 2px solid white;
+    padding: 6px;
+    margin: 3px 10px;
+  }
 
   /* New design */
   * {
