@@ -156,6 +156,11 @@ body {
     border: 2px solid white;
     padding: 6px;
     margin: 3px 10px;
+    cursor: pointer;
+  }
+  .language button:hover{
+    border: 2px solid greenyellow;
+    transition: 0.3s all ease-in;
   }
 
   /* New design */
@@ -180,7 +185,7 @@ body {
   flex-direction: column;
   row-gap: 25px;
 }
-.menu_body button {
+.menu_body a {
   position: relative;
   background: #444;
   color: #fff;
@@ -192,68 +197,22 @@ body {
   padding: 1rem 4.2rem;
   transition: 0.2s;
   cursor: pointer;
+  border: 2px solid white;
 }
 
-.menu_body button:hover {
+.menu_body a:hover {
   letter-spacing: 0.2rem;
   padding: 1rem 3.35rem;
-  background: var(--clr);
-  color: var(--clr);
+ border: 2px solid greenyellow;
   /* box-shadow: 0 0 35px var(--clr); */
   animation: box 3s infinite;
 }
 
-.menu_body button::before {
+.menu_body a::before {
   content: "";
   position: absolute;
   inset: 2px;
-  background: #272822;
-}
-
-.menu_body button span {
-  position: relative;
-  z-index: 1;
-}
-.menu_body button i {
-  position: absolute;
-  inset: 0;
-  display: block;
-}
-
-.menu_body button i::before {
-  content: "";
-  position: absolute;
-  width: 10px;
-  height: 2px;
-  left: 80%;
-  top: -2px;
-  border: 2px solid var(--clr);
-  background: #272822;
-  transition: 0.2s;
-}
-
-.menu_body button:hover i::before {
-  width: 15px;
-  left: 20%;
-  animation: move 3s infinite;
-}
-
-.menu_body button i::after {
-  content: "";
-  position: absolute;
-  width: 10px;
-  height: 2px;
-  left: 20%;
-  bottom: -2px;
-  border: 2px solid var(--clr);
-  background: #272822;
-  transition: 0.2s;
-}
-
-.menu_body button:hover i::after {
-  width: 15px;
-  left: 80%;
-  animation: move 3s infinite;
+  /* background: #272822; */
 }
 
 @keyframes move {
