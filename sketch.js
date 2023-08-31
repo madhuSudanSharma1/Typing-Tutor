@@ -43,7 +43,7 @@ const subModes={
   tutor:[
     ["अ - अः","tutor1"],
     ["क - ठ","tutor2"],
-    ["ट - भ","tutor3"],
+    ["ड - भ","tutor3"],
     ["म - ज्ञ","tutor4"]
   ],
 
