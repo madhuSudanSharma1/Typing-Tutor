@@ -1,12 +1,14 @@
 # Typing-Tutor
 
-Madhav Prasad Parajuli (077BCT041)
+## Students
 
-Madhu Sharma (077BCT042)
+- Madhav Prasad Parajuli (077BCT041)
 
-Mandip Thapa(077BCT044)
+- Madhu Sharma (077BCT042)
 
-Manish Kunwar(077BCT045)
+- Mandip Thapa(077BCT044)
+
+- Manish Kunwar(077BCT045)
 
 
 The project could not be hosted in campus server because of technical difficulties in plithos server.
